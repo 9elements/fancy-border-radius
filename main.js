@@ -57,14 +57,21 @@ class AdjustableBox {
       top: 30,
       bottom: 30
     }
-    let leftHandle = new Movable(moveableElems.left, this.updateState.bind(this), 'y', 30)
-    let rightHandle = new Movable(moveableElems.right, this.updateState.bind(this), 'y', 30)
-    let topHandle = new Movable(moveableElems.top, this.updateState.bind(this), 'x', 30)
-    let bottomHandle = new Movable(moveableElems.bottom, this.updateState.bind(this), 'x', 30)
+    this.handles = {
+      left: new Movable(moveableElems.left, this.updateState.bind(this), 'y', 30),
+      right: new Movable(moveableElems.right, this.updateState.bind(this), 'y', 30),
+      top: new Movable(moveableElems.top, this.updateState.bind(this), 'x', 30),
+      bottom: new Movable(moveableElems.bottom, this.updateState.bind(this), 'x', 30)
+    }
     copyCode.onclick = this.setClipboard.bind(this)
   }
   setClipboard () {
     this.copyToClipboard(this.generatorElem.innerHTML)
+  }
+  updateOffset () {
+    for (const key in this.handles) {
+      this.handles[key].updateOffsets()
+    }
   }
   updateState (val, key) {
     this.state[key] = val
@@ -112,14 +119,18 @@ var movables = {
   bottom: document.getElementById('bottom'),
   top: document.getElementById('top')
 }
+
+var myBox = new AdjustableBox(shape, codeOutput, movables, copyCode)
+
 var widthInput = document.getElementById('width')
 var heightInput = document.getElementById('height')
 widthInput.onchange = (e) => {
   box.style.width = e.target.value + 'px'
-
+  myBox.updateOffset()
 }
 heightInput.onchange = (e) => {
   box.style.height = e.target.value + 'px'
+  myBox.updateOffset()
 }
 document.getElementById('enable-advanced').onclick = (e) => {
   if (e.target.checked) {
@@ -129,5 +140,5 @@ document.getElementById('enable-advanced').onclick = (e) => {
     box.style.height = '70vmin'
     box.style.width = '70vmin'
   }
+  myBox.updateOffset()
 }
-new AdjustableBox(shape, codeOutput, movables, copyCode)
