@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fancy Border Radius Generator</title>
+    <link rel="stylesheet" type="text/css" href="build/main.css">
+  </head>
+  <body>
+    <div class="container">
+      <div class="advanced">
+         <label for="enable-advanced">Advanced Mode</label>
+         <input type="checkbox" id="enable-advanced">
+         <div class="settings">
+           <div>
+             <label for="width">Width</label>
+             <input id="width" type="number" min="5" max="2000" value="300" />
+           </div>
+           <div>
+             <label for="height">Height</label>
+             <input id="height" type="number" min="5" max="2000" value="300" />
+           </div>
+        </div>
+      </div>
+      <div id="box">
+        <div id="shape"></div>
+        <span id="left"></span>
+        <span id="top"></span>
+        <span id="right"></span>
+        <span id="bottom"></span>
+      </div>
+      <div class="generator">
+        <span class="label">border-radius:</span>
+        <span id="code">
+          30% 70% 70% 30% / 30% 30% 70% 70%
+        </span>
+        <span id="input"></span>
+        <button id="copy">copy</button>
+      </div>
+    </div>
+    <script language="javascript" type="text/javascript" src="main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,114 @@
+* {
+  box-sizing: border-box; }
+
+body {
+  background: #002;
+  color: white; }
+
+.container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  position: relative; }
+  .container::before, .container::after {
+    content: "";
+    width: 70vmax;
+    height: 70vmax;
+    position: absolute;
+    background: rgba(255, 255, 255, 0.07);
+    left: -20vmin;
+    top: -20vmin;
+    animation: morph 15s linear infinite alternate, spin 20s linear infinite;
+    z-index: -1;
+    will-change: border-radius, transform;
+    transform-origin: 55% 55%; }
+  .container::after {
+    width: 70vmin;
+    height: 70vmin;
+    left: auto;
+    right: -10vmin;
+    top: auto;
+    bottom: 0;
+    animation: morph 10s linear infinite alternate, spin 26s linear infinite reverse;
+    transform-origin: 20% 20%; }
+
+.generator {
+  width: 70vmin;
+  text-align: left;
+  margin-top: 1.5em;
+  display: flex;
+  justify-content: stretch;
+  align-items: baseline; }
+  .generator .label {
+    flex: 0 0 auto;
+    margin-right: 1em; }
+  .generator #code {
+    flex-grow: 1;
+    color: #003;
+    background: #ccc;
+    padding: 0.5em 0.5em 0.375em;
+    border-radius: 2px;
+    margin-top: 0.5em; }
+
+#box {
+  width: 70vmin;
+  height: 70vmin;
+  border: 2px dashed rgba(255, 255, 255, 0.4);
+  position: relative; }
+  #box #shape {
+    width: 100%;
+    height: 100%;
+    background: #f09;
+    background-image: linear-gradient(45deg, #3023AE 0%, #ff0099 100%);
+    border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+    box-shadow: -10vmin 10vmin 0 rgba(255, 255, 255, 0.07); }
+  #box span {
+    display: block;
+    position: absolute;
+    width: 1em;
+    min-width: 10px;
+    min-height: 10px;
+    height: 1em;
+    background: #fff;
+    border: 2px solid #002;
+    cursor: pointer;
+    transition: box-shadow 0.2s ease-out;
+    will-change: box-shadow; }
+    #box span.active {
+      background: #0ff;
+      box-shadow: 0 0 0 4px #FFF; }
+  #box #top {
+    top: -0.5em;
+    left: 30%;
+    transform: translateX(-50%); }
+  #box #bottom {
+    bottom: -0.5em;
+    left: 30%;
+    transform: translateX(-50%); }
+  #box #left {
+    left: -0.5em;
+    top: 30%;
+    transform: translateY(-50%); }
+  #box #right {
+    right: -0.5em;
+    top: 30%;
+    transform: translateY(-50%); }
+
+@keyframes morph {
+  0% {
+    border-radius: 40% 60% 60% 40% / 70% 30% 70% 30%; }
+  100% {
+    border-radius: 40% 60%; } }
+@keyframes spin {
+  to {
+    transform: rotate(1turn); } }
+.settings {
+  display: none; }
+
+#enable-advanced:checked + .settings {
+  display: block; }
+
+/*# sourceMappingURL=main.css.map */
