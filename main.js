@@ -87,7 +87,7 @@ class AdjustableBox {
     brd += (100 - this.state.right) + '% '
     brd += (100 - this.state.left) + '% '
     this.shapeElem.style['border-radius'] = brd
-    document.getElementById('input').innerHTML = brd
+    //document.getElementById('input').innerHTML = brd
     this.generatorElem.innerHTML = this.shapeElem.style['border-radius']
   }
   copyToClipboard (str) {
