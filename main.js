@@ -138,8 +138,8 @@ document.getElementById('enable-advanced').onclick = (e) => {
     box.style.height = heightInput.value + 'px'
     box.style.width = widthInput.value + 'px'
   } else {
-    box.style.height = '70vmin'
-    box.style.width = '70min'
+    box.style.height = ''
+    box.style.width = ''
   }
   myBox.updateOffset()
 }
