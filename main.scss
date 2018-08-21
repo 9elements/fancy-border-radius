@@ -172,6 +172,13 @@ h1 {
     padding: 0.5em 1em;
     font-weight: bold;
     width: 100%;
+    transition: background 0.3s ease-out;
+    will-change: background;
+    cursor: pointer;
+
+    &:hover {
+      background: $purple;
+    }
   }
 
   @media screen and (min-width: 30.75rem) {
@@ -274,7 +281,18 @@ h1 {
   }
 }
 
-#width,
-#height {
+.alert {
+  position: fixed;
+  left: 50%;
+  top: 30%;
+  transform: translate(-50%, 0);
   color: $black;
+  font-size: 1.5rem;
+  pointer-events: none;
+  z-index: 100;
+  padding: 1em;
+  background: rgba($white, 0.8);
+  border-radius: 0.5em;
+  white-space: nowrap;
 }
+

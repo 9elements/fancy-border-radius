@@ -79,11 +79,11 @@ class AdjustableBox {
   }
   setClipboard () {
     this.copyToClipboard(this.generatorElem.innerHTML)
-    this.copiedCode.innerHTML = '<div class="alert">Code Copied 👍</div>'
+    this.copiedCode.innerHTML = '<div class="alert">Copied to clipboard 👍</div>'
     setTimeout(() => {
       this.copiedCode.innerHTML = ''
     }
-      , 3000)
+      , 2000)
   }
   updateOffset () {
     for (const key in this.handles) {
