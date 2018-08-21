@@ -9,12 +9,6 @@ class Movable {
     this.elem.ontouchstart = this.dragMouseDown.bind(this)
     window.addEventListener('resize', this.updateOffsets.bind(this), true)
   }
-  tryVibration() {
-    navigator.vibrate = navigator.vibrate || navigator.webkitVibrate || navigator.mozVibrate || navigator.msVibrate
-    if (navigator.vibrate) {
-      navigator.vibrate(1000)
-    }
-  }
   updateOffsets (e) {
     this.boxRect = this.elem.parentNode.getBoundingClientRect()
   }
@@ -31,11 +25,9 @@ class Movable {
     document.onmousemove = this.elementDrag.bind(this)
     document.ontouchmove = this.elementDrag.bind(this)
   }
-
   elementDrag (e) {
     e = e || window.event
-
-    if (typeof TouchEvent !== "undefined" && e instanceof TouchEvent) {
+    if (typeof TouchEvent !== 'undefined' && e instanceof TouchEvent) {
       var touchobj = e.changedTouches[0] // first finger
       this.setPos(touchobj.clientX, touchobj.clientY)
     } else {
@@ -67,9 +59,10 @@ class Movable {
   }
 }
 class AdjustableBox {
-  constructor (shapeElem, generatorElem, moveableElems, copyCode) {
+  constructor (shapeElem, generatorElem, moveableElems, copyCode, copiedCode) {
     this.generatorElem = generatorElem
     this.shapeElem = shapeElem
+    this.copiedCode = copiedCode
     this.state = {
       left: 30,
       right: 30,
@@ -86,6 +79,11 @@ class AdjustableBox {
   }
   setClipboard () {
     this.copyToClipboard(this.generatorElem.innerHTML)
+    this.copiedCode.innerHTML = '<div class="alert">Code Copied 👍</div>'
+    setTimeout(() => {
+      this.copiedCode.innerHTML = ''
+    }
+      , 3000)
   }
   updateOffset () {
     for (const key in this.handles) {
@@ -133,6 +131,7 @@ var box = document.getElementById('box')
 var shape = document.getElementById('shape')
 var codeOutput = document.getElementById('code')
 var copyCode = document.getElementById('copy')
+var copiedCode = document.getElementById('clipboard_copied')
 var movables = {
   left: document.getElementById('left'),
   right: document.getElementById('right'),
@@ -140,7 +139,7 @@ var movables = {
   top: document.getElementById('top')
 }
 
-var myBox = new AdjustableBox(shape, codeOutput, movables, copyCode)
+var myBox = new AdjustableBox(shape, codeOutput, movables, copyCode, copiedCode)
 
 var widthInput = document.getElementById('width')
 var heightInput = document.getElementById('height')
