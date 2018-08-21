@@ -133,7 +133,7 @@ html, body { background: #000022; color: white; font-family: 'M PLUS Rounded 1c'
 h1 { text-transform: uppercase; font-size: 1.5rem; color: rgba(255, 255, 255, 0.8); line-height: 1; margin: 0 0 0.5em; letter-spacing: 0.01em; }
 @media screen and (min-height: 36.25rem) and (min-width: 25rem) { h1 { font-size: 2rem; } }
 
-.container { height: calc(100vh - 2.5rem); display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; -webkit-box-align: center; -ms-flex-align: center; align-items: center; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; overflow: hidden; position: relative; }
+.container { min-height: calc(100vh - 2.5rem); padding-top: 2rem; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; -webkit-box-align: center; -ms-flex-align: center; align-items: center; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; overflow: hidden; position: relative; }
 .container::before, .container::after { content: ""; width: 70vmax; height: 70vmax; position: absolute; background: rgba(255, 255, 255, 0.07); left: -20vmin; top: -20vmin; -webkit-animation: morph 15s linear infinite alternate, spin 20s linear infinite; animation: morph 15s linear infinite alternate, spin 20s linear infinite; z-index: 1; will-change: border-radius, transform; -webkit-transform-origin: 55% 55%; transform-origin: 55% 55%; pointer-events: none; }
 .container::after { width: 70vmin; height: 70vmin; left: auto; right: -10vmin; top: auto; bottom: 0; -webkit-animation: morph 10s linear infinite alternate, spin 26s linear infinite reverse; animation: morph 10s linear infinite alternate, spin 26s linear infinite reverse; -webkit-transform-origin: 20% 20%; transform-origin: 20% 20%; }
 
@@ -168,7 +168,9 @@ h1 { text-transform: uppercase; font-size: 1.5rem; color: rgba(255, 255, 255, 0.
 @-webkit-keyframes spin { to { -webkit-transform: rotate(1turn); transform: rotate(1turn); } }
 @keyframes spin { to { -webkit-transform: rotate(1turn); transform: rotate(1turn); } }
 .advanced { width: 100%; max-width: 39rem; text-align: left; margin-top: 1em; font-size: 1.25rem; position: relative; z-index: 5; }
+.advanced .input-group { margin-bottom: 0.5em; }
 .advanced label { width: 10rem; display: block; }
+.advanced input[type="number"] { width: 120px; }
 
 .settings { display: none; }
 

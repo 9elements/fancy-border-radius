@@ -37,7 +37,8 @@ h1 {
 }
 
 .container {
-  height: calc(100vh - 2.5rem);
+  min-height: calc(100vh - 2.5rem);
+  padding-top: 2rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -246,9 +247,17 @@ h1 {
   position: relative;
   z-index: 5;
 
+  .input-group {
+    margin-bottom: 0.5em;
+  }
+
   label {
     width: $label-width;
     display: block;
+  }
+
+  input[type="number"] {
+    width: 120px;
   }
 }
 .settings{
