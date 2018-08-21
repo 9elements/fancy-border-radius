@@ -1,44 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fancy Border Radius Generator</title>
-    <meta name="description" content="A visual generator to build organic looking shapes with the help of CSS3 border-radius property">
-    <link rel="stylesheet" type="text/css" href="build/main.css">
-  </head>
-  <body>
-    <div class="container">
-      <div class="advanced">
-         <label for="enable-advanced">Custom width and height</label>
-         <input type="checkbox" id="enable-advanced">
-         <div class="settings">
-           <div>
-             <label for="width">Width</label>
-             <input id="width" type="number" min="5" max="2000" value="300" />
-           </div>
-           <div>
-             <label for="height">Height</label>
-             <input id="height" type="number" min="5" max="2000" value="300" />
-           </div>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fancy Border Radius Generator</title>
+  <meta name="description" content="A visual generator to build organic looking shapes with the help of CSS3 border-radius property">
+  <link href="https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c:400,800|Ubuntu+Mono" rel="stylesheet"> 
+  <link rel="stylesheet" type="text/css" href="build/main.css">
+</head>
+
+<body>
+  <div class="container">
+    <div class="advanced">
+      <label for="enable-advanced">Custom width and height</label>
+      <input type="checkbox" id="enable-advanced">
+      <div class="settings">
+        <div>
+          <label for="width">Width</label>
+          <input id="width" type="number" min="5" max="2000" value="300" />
+        </div>
+        <div>
+          <label for="height">Height</label>
+          <input id="height" type="number" min="5" max="2000" value="300" />
         </div>
       </div>
-      <div id="box">
-        <div id="shape"></div>
-        <span id="left"></span>
-        <span id="top"></span>
-        <span id="right"></span>
-        <span id="bottom"></span>
-      </div>
-      <div class="generator">
-        <span class="label">border-radius:</span>
-        <span id="code">
+    </div>
+    <div class="generator" id="box">
+      <div class="generator__shape" id="shape"></div>
+      <span class="generator__handle" id="left"></span>
+      <span class="generator__handle" id="top"></span>
+      <span class="generator__handle" id="right"></span>
+      <span class="generator__handle" id="bottom"></span>
+    </div>
+    <div class="output">
+      <div class="output__label">border-radius:</div>
+      <div class="output__input-group">
+        <span type="text" class="output__code" id="code">
           30% 70% 70% 30% / 30% 30% 70% 70%
         </span>
-        <!-- <span id="input"></span> -->
-        <button id="copy">copy</button>
+        <button class="output__button" id="copy">copy</button>
       </div>
     </div>
-    <script language="javascript" type="text/javascript" src="main.js"></script>
-  </body>
+  </div>
+  <footer class="footer">
+    Made with <span class="footer__heart">💜</span> by <a href="https://github.com/mirko314" target="_blank">Mirko</a> and <a href="https://twitter.com/supremebeing09" target="_blank">Nils</a> @ <a href="https://9elements.com/" target="_blank">9elements</a>.
+  </footer>
+  <script language="javascript" type="text/javascript" src="main.js"></script>
+</body>
+
 </html>

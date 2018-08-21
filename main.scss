@@ -1,12 +1,21 @@
+@import "scss/normalize";
+
+$pink:    #FF0099;
+$purple:  #3023AE;
+$black:   #000022;
+$white:   #FFFFFF;
+
 * {
   box-sizing: border-box;
 }
 body {
-  background: #002;
+  background: $black;
   color: white;
+  font-family: 'M PLUS Rounded 1c', sans-serif;
 }
+
 .container {
-  height: 100vh;
+  height: calc(100vh - 2.5rem);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -20,7 +29,7 @@ body {
     width: 70vmax;
     height: 70vmax;
     position: absolute;
-    background: rgba(255,255,255,0.07);
+    background: rgba($white,0.07);
     left: -20vmin;
     top: -20vmin;
     animation: morph 15s linear infinite alternate, spin 20s linear infinite;
@@ -41,45 +50,89 @@ body {
   }
 }
 
-.generator {
-  width: 70vmin;
+.output {
+  width: 90%;
   text-align: left;
   margin-top: 1.5em;
-  display: flex;
-  justify-content: stretch;
-  align-items: baseline;
+  font-size: 1.25rem;
+  line-height: 1.5;
 
-  .label {
+  &__label { 
     flex: 0 0 auto;
     margin-right: 1em;
+    margin-bottom: 0.5em;
+    color: rgba($white, 0.9);
   }
 
-  #code {
+  &__code {
+    display: block;
+    font-family: 'Ubuntu Mono', monospace;
     flex-grow: 1;
-    color: #003;
+    color: $black;
     background: #ccc;
-    padding: 0.5em 0.5em 0.375em;
+    padding: 0.5em 0.625em;
     border-radius: 2px;
-    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+  }
+
+  &__button {
+    display: block;
+    border-radius: 2px;
+    background: $pink;
+    border: none;
+    color: rgba($white, 0.9);
+    padding: 0.5em 1em;
+    font-weight: bold;
+    width: 100%;
+  }
+
+  @media screen and (min-width: 30.75rem) {
+    &__input-group {
+      display: flex;
+      align-items: stretch;
+      flex-grow: 1;
+    }
+
+    &__code {
+      border-radius: 2px 0 0 2px;
+      flex-grow: 1;
+      margin-bottom: 0;
+    }
+
+    &__button {
+      flex-shrink: 1;
+      border-radius: 0 2px 2px 0;
+      width: auto;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+  }
+
+  @media screen and (min-width: 43rem) {
+    display: flex;
+    justify-content: stretch;
+    align-items: baseline;
+    max-width: 39rem;
   }
 }
 
-#box {
+.generator {
   width: 70vmin;
   height: 70vmin;
-  border: 2px dashed rgba(255,255,255,0.4);
+  border: 2px dashed rgba($white,0.4);
   position: relative;
 
-  #shape {
+  &__shape {
     width: 100%;
     height: 100%;
-    background: #f09;
-    background-image: linear-gradient(45deg, #3023AE 0%, #ff0099 100%);
+    background: $pink;
+    background-image: linear-gradient(45deg, $purple 0%, $pink 100%);
     border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
     box-shadow: -10vmin 10vmin 0 rgba(255,255,255,0.07);
   }
 
-  span {
+  &__handle {
     display: block;
     position: absolute;
     width: 1em;
@@ -92,7 +145,8 @@ body {
     transition: box-shadow 0.2s ease-out;
     will-change: box-shadow;
 
-    &.active {
+    &.active,
+    &:hover {
       background: #0ff;
       box-shadow: 0 0 0 4px #FFF;
     }
@@ -134,4 +188,32 @@ body {
 }
 #enable-advanced:checked + .settings{
   display: block;
+}
+
+.footer {
+  background: rgba($white, 0.15);
+  height: 2.5rem;
+  text-align: center;
+  color: rgba($white, 0.6);
+  font-size: 1rem;
+  line-height: 2.5rem;
+
+  &__heart {
+    padding: 0 0.125em;
+    color: $purple;
+  }
+
+  a {
+    text-decoration: none;
+    color: rgba($white, 0.8);
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+#width,
+#height {
+  color: $black;
 }

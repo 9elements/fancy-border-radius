@@ -89,6 +89,7 @@ class AdjustableBox {
     this.shapeElem.style['border-radius'] = brd
     //document.getElementById('input').innerHTML = brd
     this.generatorElem.innerHTML = this.shapeElem.style['border-radius']
+    //this.generatorElem.innerHTML = brd
   }
   copyToClipboard (str) {
     const el = document.createElement('textarea')
@@ -138,7 +139,7 @@ document.getElementById('enable-advanced').onclick = (e) => {
     box.style.width = widthInput.value + 'px'
   } else {
     box.style.height = '70vmin'
-    box.style.width = '70vmin'
+    box.style.width = '70min'
   }
   myBox.updateOffset()
 }
