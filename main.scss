@@ -5,6 +5,7 @@ $purple:  #3023AE;
 $black:   #000022;
 $white:   #FFFFFF;
 
+$label-width: 10rem;
 $handle-outer-width: 2.5rem;
 $handle-inner-width: 1rem;
 
@@ -57,6 +58,7 @@ h1 {
     z-index: 1;
     will-change: border-radius, transform;
     transform-origin: 55% 55%;
+    pointer-events: none;
   }
 
   &::after {
@@ -145,8 +147,7 @@ h1 {
   line-height: 1.5;
 
   &__label { 
-    flex: 0 0 auto;
-    margin-right: 1em;
+    flex: 0 0 $label-width;
     margin-bottom: 0.5em;
     color: rgba($white, 0.9);
   }
@@ -176,12 +177,6 @@ h1 {
   @media screen and (min-width: 30.75rem) {
     font-size: 1.25rem;
 
-    &__input-group {
-      display: flex;
-      align-items: stretch;
-      flex-grow: 1;
-    }
-
     &__code {
       border-radius: 2px 0 0 2px;
       flex-grow: 1;
@@ -195,7 +190,6 @@ h1 {
       text-transform: uppercase;
       letter-spacing: 0.1em;
     }
-
   }
 
   @media screen and (min-width: 43rem) {
@@ -206,6 +200,25 @@ h1 {
   }
 }
 
+
+  .input-group {
+    input {
+      border-radius: 2px;
+      border: none;
+      background: $white;
+      font-family: 'Ubuntu Mono', monospace;
+      color: $black;
+      padding: 0.5em 0.625em;
+    }
+
+    @media screen and (min-width: 30.85rem) {
+      display: flex;
+      align-items: stretch;
+      flex-grow: 1;
+      margin-bottom: 0;
+    }
+  }
+
 @keyframes morph {
   0% {border-radius: 40% 60% 60% 40% / 70% 30% 70% 30%;}
   100% {border-radius: 40% 60%;}
@@ -214,6 +227,21 @@ h1 {
 @keyframes spin {
   to {
     transform: rotate(1turn);
+  }
+}
+
+.advanced {
+  width: 100%;
+  max-width: 39rem;
+  text-align: left;
+  margin-top: 1em;
+  font-size: 1.25rem;
+  position: relative;
+  z-index: 5;
+
+  label {
+    width: $label-width;
+    display: block;
   }
 }
 .settings{
