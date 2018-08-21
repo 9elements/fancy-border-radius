@@ -6,7 +6,14 @@ class Movable {
     this.boxRect = elem.parentNode.getBoundingClientRect()
     this.onChange = onChange
     this.elem.onmousedown = this.dragMouseDown.bind(this)
+    this.elem.ontouchstart = this.dragMouseDown.bind(this)
     window.addEventListener('resize', this.updateOffsets.bind(this), true)
+  }
+  tryVibration() {
+    navigator.vibrate = navigator.vibrate || navigator.webkitVibrate || navigator.mozVibrate || navigator.msVibrate
+    if (navigator.vibrate) {
+      navigator.vibrate(1000)
+    }
   }
   updateOffsets (e) {
     this.boxRect = this.elem.parentNode.getBoundingClientRect()
@@ -16,14 +23,23 @@ class Movable {
     e.preventDefault()
     this.currentSpan = e.target
     this.currentSpan.classList.add('active')
+    this.tryVibration()
+
     document.onmouseup = this.closeDragElement.bind(this)
+    document.ontouchend = this.closeDragElement.bind(this)
+
     document.onmousemove = this.elementDrag.bind(this)
+    document.ontouchmove = this.elementDrag.bind(this)
   }
 
   elementDrag (e) {
     e = e || window.event
-    e.preventDefault()
-    this.setPos(e.clientX, e.clientY)
+    if (e instanceof TouchEvent) {
+      var touchobj = e.changedTouches[0] // first finger
+      this.setPos(touchobj.clientX, touchobj.clientY)
+    } else {
+      this.setPos(e.clientX, e.clientY)
+    }
   }
   setPos (_posX, _posY) {
     if (this.axis == 'x') {
@@ -41,6 +57,8 @@ class Movable {
     this.currentSpan.classList.remove('active')
     document.onmouseup = null
     document.onmousemove = null
+    document.ontouchend = null
+    document.ontouchmove = null
   }
 
   valBetween (v, min, max) {
@@ -87,9 +105,9 @@ class AdjustableBox {
     brd += (100 - this.state.right) + '% '
     brd += (100 - this.state.left) + '% '
     this.shapeElem.style['border-radius'] = brd
-    //document.getElementById('input').innerHTML = brd
+    // document.getElementById('input').innerHTML = brd
     this.generatorElem.innerHTML = this.shapeElem.style['border-radius']
-    //this.generatorElem.innerHTML = brd
+    // this.generatorElem.innerHTML = brd
   }
   copyToClipboard (str) {
     const el = document.createElement('textarea')
