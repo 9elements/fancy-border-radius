@@ -17,7 +17,6 @@ class Movable {
     e.preventDefault()
     this.currentSpan = e.target
     this.currentSpan.classList.add('active')
-    this.tryVibration()
 
     document.onmouseup = this.closeDragElement.bind(this)
     document.ontouchend = this.closeDragElement.bind(this)
