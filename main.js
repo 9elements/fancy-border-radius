@@ -3,14 +3,10 @@ class Movable {
     this.axis = axis
     this.pos = initPosition
     this.elem = elem
-    this.boxRect = elem.parentNode.getBoundingClientRect()
+
     this.onChange = onChange
     this.elem.onmousedown = this.dragMouseDown.bind(this)
     this.elem.ontouchstart = this.dragMouseDown.bind(this)
-    window.addEventListener('resize', this.updateOffsets.bind(this), true)
-  }
-  updateOffsets (e) {
-    this.boxRect = this.elem.parentNode.getBoundingClientRect()
   }
   dragMouseDown (e) {
     e = e || window.event
@@ -34,12 +30,12 @@ class Movable {
     }
   }
   setPos (_posX, _posY) {
+    let boxRect = this.elem.parentNode.getBoundingClientRect()
     if (this.axis == 'x') {
-      this.pos = this.valBetween(((_posX - 5 - this.boxRect['x']).toFixed(0) * 100 / this.boxRect['width']).toFixed(0), 0, 100)
+      this.pos = this.valBetween(((_posX - 5 - boxRect['x']).toFixed(0) * 100 / boxRect['width']).toFixed(0), 0, 100)
       this.elem.style.left = this.pos + '%'
-      // console.log(this.elem.style.left)
     } else {
-      this.pos = this.valBetween(((_posY - 5 - this.boxRect['y']).toFixed(0) * 100 / this.boxRect['height']).toFixed(0), 0, 100)
+      this.pos = this.valBetween(((_posY - 5 - boxRect['y']).toFixed(0) * 100 / boxRect['height']).toFixed(0), 0, 100)
       this.elem.style.top = this.pos + '%'
     }
     this.onChange(this.pos, this.elem.id)
@@ -84,11 +80,6 @@ class AdjustableBox {
     }
       , 2000)
   }
-  updateOffset () {
-    for (const key in this.handles) {
-      this.handles[key].updateOffsets()
-    }
-  }
   updateState (val, key) {
     this.state[key] = val
     this.updateBorderRadius()
@@ -103,9 +94,7 @@ class AdjustableBox {
     brd += (100 - this.state.right) + '% '
     brd += (100 - this.state.left) + '% '
     this.shapeElem.style['border-radius'] = brd
-    // document.getElementById('input').innerHTML = brd
-    this.generatorElem.innerHTML = this.shapeElem.style['border-radius']
-    // this.generatorElem.innerHTML = brd
+    this.generatorElem.innerHTML = brd
   }
   copyToClipboard (str) {
     const el = document.createElement('textarea')
@@ -144,11 +133,9 @@ var widthInput = document.getElementById('width')
 var heightInput = document.getElementById('height')
 widthInput.onchange = (e) => {
   box.style.width = e.target.value + 'px'
-  myBox.updateOffset()
 }
 heightInput.onchange = (e) => {
   box.style.height = e.target.value + 'px'
-  myBox.updateOffset()
 }
 document.getElementById('enable-advanced').onclick = (e) => {
   if (e.target.checked) {
@@ -158,5 +145,4 @@ document.getElementById('enable-advanced').onclick = (e) => {
     box.style.height = ''
     box.style.width = ''
   }
-  myBox.updateOffset()
 }
