@@ -34,7 +34,8 @@ class Movable {
 
   elementDrag (e) {
     e = e || window.event
-    if (e instanceof TouchEvent) {
+
+    if (typeof TouchEvent !== "undefined" && e instanceof TouchEvent) {
       var touchobj = e.changedTouches[0] // first finger
       this.setPos(touchobj.clientX, touchobj.clientY)
     } else {
