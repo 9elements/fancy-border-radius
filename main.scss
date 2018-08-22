@@ -8,6 +8,7 @@ $white:   #FFFFFF;
 $label-width: 10rem;
 $handle-outer-width: 2.5rem;
 $handle-inner-width: 1rem;
+$trigger-size: 1em;
 
 *,
 *:before,
@@ -148,8 +149,9 @@ h1 {
   line-height: 1.5;
 
   &__label { 
-    flex: 0 0 $label-width;
+    flex: 0 0 auto;
     margin-bottom: 0.5em;
+    margin-right: 1em;
     color: rgba($white, 0.9);
   }
 
@@ -239,39 +241,98 @@ h1 {
 }
 
 .advanced {
-  width: 100%;
+  width: 90%;
   max-width: 39rem;
   text-align: left;
-  margin-top: 1em;
-  font-size: 1.25rem;
+  margin: 1em auto;
   position: relative;
   z-index: 5;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: rgba($white, 0.9);
+
+  @media screen and (min-width: 560px) {
+    font-size: 1.25rem;
+  }
+
+  &__switch {
+    padding: 0.5em 0;
+    flex-shrink: 0;
+  }
+
+  &__settings {
+    display: none;
+    justify-content: space-between;
+
+    &.visible {
+      display: flex;
+    }
+  }
 
   &__check {
     visibility: hidden;
     width: 0;
     height: 0;
-  }
-
-  &__settings {
-    display: none;
-
-    &.visible {
-      display: block;
-    }
+    display: block;
+    border: none;
   }
 
   .input-group {
-    margin-bottom: 0.5em;
+    align-items: center;
+    margin-left: 1em;
+    label {
+      display: block;
+      margin-right: 0.5em;
+    }
+    input[type="number"] {
+      width: 4.5rem;
+
+      @media screen and (min-width: 40rem) {
+        width: 5.5rem;
+      }
+    }
   }
 
-  label {
-    width: $label-width;
+  &__check:checked + .advanced__trigger {
+    span:after {
+      background: $pink;
+      left: 1.15 * $trigger-size;
+    }
+  }
+
+  &__trigger {
     display: block;
-  }
+    line-height: 1;
+    cursor: pointer;
 
-  input[type="number"] {
-    width: 120px;
+
+    span {
+      display: inline-block;
+      width: 2 * $trigger-size;
+      height: $trigger-size;
+      border-radius: 0.5 * $trigger-size;
+      background: rgba($white, 0.8);
+      vertical-align: bottom;
+      position: relative;
+
+      @media screen and (min-width: 43rem) {
+        margin-left: 2rem;
+      }
+
+      &:after {
+        content: "";
+        position: absolute;
+        width: 0.7 * $trigger-size;
+        height: 0.7 * $trigger-size;
+        border-radius: 50%;
+        background: $black;
+        position: absolute;
+        left: .15 * $trigger-size;
+        top: .15 * $trigger-size;
+        transition: left 0.3s ease-out, background 0.3s ease-out;
+      }
+    }
   }
 }
 
