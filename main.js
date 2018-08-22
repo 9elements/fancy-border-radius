@@ -137,7 +137,7 @@ widthInput.onchange = (e) => {
 heightInput.onchange = (e) => {
   box.style.height = e.target.value + 'px'
 }
-
+document.getElementById('enable-advanced').checked = false
 document.getElementById('enable-advanced').onclick = (e) => {
   if (e.target.checked) {
     document.getElementById('dimension-input').classList.add('visible')
