@@ -1,4 +1,4 @@
-@import "scss/normalize";
+@import "normalize";
 
 $pink:    #FF0099;
 $purple:  #3023AE;
@@ -148,7 +148,7 @@ h1 {
   font-size: 1.125rem;
   line-height: 1.5;
 
-  &__label { 
+  &__label {
     flex: 0 0 auto;
     margin-bottom: 0.5em;
     margin-right: 1em;
