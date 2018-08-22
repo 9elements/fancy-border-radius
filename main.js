@@ -137,11 +137,16 @@ widthInput.onchange = (e) => {
 heightInput.onchange = (e) => {
   box.style.height = e.target.value + 'px'
 }
+
 document.getElementById('enable-advanced').onclick = (e) => {
   if (e.target.checked) {
+    document.getElementById('dimension-input').classList.add('visible')
+    widthInput.value = box.offsetWidth
+    heightInput.value = box.offsetHeight
     box.style.height = heightInput.value + 'px'
     box.style.width = widthInput.value + 'px'
   } else {
+    document.getElementById('dimension-input').classList.remove('visible')
     box.style.height = ''
     box.style.width = ''
   }

@@ -247,6 +247,20 @@ h1 {
   position: relative;
   z-index: 5;
 
+  &__check {
+    visibility: hidden;
+    width: 0;
+    height: 0;
+  }
+
+  &__settings {
+    display: none;
+
+    &.visible {
+      display: block;
+    }
+  }
+
   .input-group {
     margin-bottom: 0.5em;
   }
@@ -259,12 +273,6 @@ h1 {
   input[type="number"] {
     width: 120px;
   }
-}
-.settings{
-  display: none;
-}
-#enable-advanced:checked + .settings{
-  display: block;
 }
 
 .footer {

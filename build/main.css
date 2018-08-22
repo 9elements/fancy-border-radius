@@ -168,13 +168,12 @@ h1 { text-transform: uppercase; font-size: 1.5rem; color: rgba(255, 255, 255, 0.
 @-webkit-keyframes spin { to { -webkit-transform: rotate(1turn); transform: rotate(1turn); } }
 @keyframes spin { to { -webkit-transform: rotate(1turn); transform: rotate(1turn); } }
 .advanced { width: 100%; max-width: 39rem; text-align: left; margin-top: 1em; font-size: 1.25rem; position: relative; z-index: 5; }
+.advanced__check { visibility: hidden; width: 0; height: 0; }
+.advanced__settings { display: none; }
+.advanced__settings.visible { display: block; }
 .advanced .input-group { margin-bottom: 0.5em; }
 .advanced label { width: 10rem; display: block; }
 .advanced input[type="number"] { width: 120px; }
-
-.settings { display: none; }
-
-#enable-advanced:checked + .settings { display: block; }
 
 .footer { background: rgba(255, 255, 255, 0.15); height: 2.5rem; text-align: center; color: rgba(255, 255, 255, 0.6); font-size: 1rem; line-height: 2.5rem; }
 .footer__heart { padding: 0 0.125em; color: #3023AE; }
