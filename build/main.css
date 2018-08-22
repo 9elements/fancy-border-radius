@@ -565,12 +565,17 @@ h1 {
       font-size: 1.25rem; } }
   .advanced__switch {
     padding: 0.5em 0;
-    flex-shrink: 0; }
+    flex-shrink: 0;
+    margin-bottom: 0.5em; }
   .advanced__settings {
-    display: none;
-    justify-content: space-between; }
+    display: none; }
     .advanced__settings.visible {
-      display: flex; }
+      display: flex;
+      justify-content: space-between;
+      flex-direction: column; }
+      @media screen and (min-width: 31.25rem) {
+        .advanced__settings.visible {
+          flex-direction: row; } }
   .advanced__check {
     visibility: hidden;
     width: 0;
@@ -579,15 +584,15 @@ h1 {
     border: none; }
   .advanced .input-group {
     align-items: center;
-    margin-left: 1em; }
+    margin-left: 1em;
+    margin-bottom: 0.5em;
+    justify-content: space-between;
+    display: flex; }
     .advanced .input-group label {
       display: block;
       margin-right: 0.5em; }
     .advanced .input-group input[type="number"] {
       width: 4.5rem; }
-      @media screen and (min-width: 40rem) {
-        .advanced .input-group input[type="number"] {
-          width: 5.5rem; } }
   .advanced__check:checked + .advanced__trigger span:after {
     background: #FF0099;
     left: 1.15em; }
@@ -620,7 +625,7 @@ h1 {
 
 .footer {
   background: rgba(255, 255, 255, 0.15);
-  height: 2.5rem;
+  min-height: 2.5rem;
   text-align: center;
   color: rgba(255, 255, 255, 0.6);
   font-size: 1rem;

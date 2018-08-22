@@ -259,14 +259,21 @@ h1 {
   &__switch {
     padding: 0.5em 0;
     flex-shrink: 0;
+    margin-bottom: 0.5em;
   }
 
   &__settings {
     display: none;
-    justify-content: space-between;
 
     &.visible {
       display: flex;
+      justify-content: space-between;
+      flex-direction: column;
+      
+  
+      @media screen and (min-width: 31.25rem) {
+        flex-direction: row;
+      }
     }
   }
 
@@ -281,16 +288,16 @@ h1 {
   .input-group {
     align-items: center;
     margin-left: 1em;
+    margin-bottom: 0.5em;
+    justify-content: space-between;
+    display: flex;
+
     label {
       display: block;
       margin-right: 0.5em;
     }
     input[type="number"] {
       width: 4.5rem;
-
-      @media screen and (min-width: 40rem) {
-        width: 5.5rem;
-      }
     }
   }
 
@@ -338,7 +345,7 @@ h1 {
 
 .footer {
   background: rgba($white, 0.15);
-  height: 2.5rem;
+  min-height: 2.5rem;
   text-align: center;
   color: rgba($white, 0.6);
   font-size: 1rem;
