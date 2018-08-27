@@ -1,0 +1,65 @@
+.generator {
+  width: 50vmin;
+  height: 50vmin;
+  border: 2px dashed rgba($white,0.4);
+  position: relative;
+  z-index: 3;
+  margin-left: auto;
+  margin-right: auto;
+
+  &__shape {
+    width: 100%;
+    height: 100%;
+    background: $pink;
+    background-image: linear-gradient(45deg, $purple 0%, $pink 100%);
+    border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+    box-shadow: -10vmin 10vmin 0 rgba(255,255,255,0.07);
+  }
+
+  &__handle {
+    display: block;
+    position: absolute;
+    cursor: pointer;
+    width: $handle-outer-width;
+    height: $handle-outer-width;
+
+    &:before {
+      content: "";
+      position: absolute;
+      width: $handle-inner-width;
+      height: $handle-inner-width;
+      left: ($handle-outer-width - $handle-inner-width) / 2;
+      top: ($handle-outer-width - $handle-inner-width) / 2;
+      background: #fff;
+      border: 2px solid #002;
+      transition: box-shadow 0.2s ease-out;
+      will-change: box-shadow;
+    }
+
+    &.active:before,
+    &:hover:before {
+      background: #0ff;
+      box-shadow: 0 0 0 4px #FFF;
+    }
+  }
+  #top {
+    top: -($handle-outer-width / 2);
+    left: 30%;
+    transform: translateX(-50%);
+  }
+  #bottom {
+    bottom: -($handle-outer-width / 2);
+    left: 30%;
+    transform: translateX(-50%);
+  }
+  #left {
+    left: -($handle-outer-width / 2);
+    top: 30%;
+    transform: translateY(-50%);
+  }
+  #right {
+    right: -($handle-outer-width / 2);
+    top: 30%;
+    transform: translateY(-50%);
+  }
+}

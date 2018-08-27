@@ -1,0 +1,10 @@
+@keyframes morph {
+  0% {border-radius: 40% 60% 60% 40% / 70% 30% 70% 30%;}
+  100% {border-radius: 40% 60%;}
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(1turn);
+  }
+}

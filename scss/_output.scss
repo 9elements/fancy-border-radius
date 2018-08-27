@@ -1,0 +1,70 @@
+.output {
+  width: 90%;
+  text-align: left;
+  margin-top: 1.5em;
+  font-size: 1.125rem;
+  line-height: 1.5;
+  margin-left: auto;
+  margin-right: auto;
+
+  &__label {
+    flex: 0 0 auto;
+    margin-bottom: 0.5em;
+    margin-right: 1em;
+    color: rgba($white, 0.9);
+  }
+
+  &__code {
+    display: block;
+    font-family: 'Ubuntu Mono', monospace;
+    flex-grow: 1;
+    color: $black;
+    background: #ccc;
+    padding: 0.5em 0.625em;
+    border-radius: 2px;
+    margin-bottom: 0.5em;
+  }
+
+  &__button {
+    display: block;
+    border-radius: 2px;
+    background: $pink;
+    border: none;
+    color: rgba($white, 0.9);
+    padding: 0.5em 1em;
+    font-weight: bold;
+    width: 100%;
+    transition: background 0.3s ease-out;
+    will-change: background;
+    cursor: pointer;
+
+    &:hover {
+      background: $purple;
+    }
+  }
+
+  @media screen and (min-width: 30.75rem) {
+    font-size: 1.25rem;
+
+    &__code {
+      border-radius: 2px 0 0 2px;
+      flex-grow: 1;
+      margin-bottom: 0;
+    }
+
+    &__button {
+      flex-shrink: 1;
+      border-radius: 0 2px 2px 0;
+      width: auto;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+  }
+
+  @media screen and (min-width: 43rem) {
+    display: flex;
+    justify-content: stretch;
+    align-items: baseline;
+    max-width: 39rem;
+  }
+}

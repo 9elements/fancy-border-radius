@@ -126,9 +126,23 @@ table { border-collapse: collapse; border-spacing: 0; }
 
 td, th { padding: 0; }
 
+@-webkit-keyframes morph { 0% { border-radius: 40% 60% 60% 40% / 70% 30% 70% 30%; }
+  100% { border-radius: 40% 60%; } }
+
+@keyframes morph { 0% { border-radius: 40% 60% 60% 40% / 70% 30% 70% 30%; }
+  100% { border-radius: 40% 60%; } }
+@-webkit-keyframes spin { to { -webkit-transform: rotate(1turn); transform: rotate(1turn); } }
+@keyframes spin { to { -webkit-transform: rotate(1turn); transform: rotate(1turn); } }
 *, *:before, *:after { -webkit-box-sizing: border-box; box-sizing: border-box; }
 
 html, body { background: #000022; color: white; font-family: 'M PLUS Rounded 1c', sans-serif; overflow-x: hidden; }
+
+.alert { position: fixed; left: 50%; top: 30%; -webkit-transform: translate(-50%, 0); transform: translate(-50%, 0); color: #000022; font-size: 1.5rem; pointer-events: none; z-index: 100; padding: 1em; background: rgba(255, 255, 255, 0.8); border-radius: 0.5em; white-space: nowrap; }
+
+.footer { background: rgba(255, 255, 255, 0.15); min-height: 2.5rem; text-align: center; color: rgba(255, 255, 255, 0.6); font-size: 1rem; line-height: 2.5rem; }
+.footer__heart { padding: 0 0.125em; color: #3023AE; }
+.footer a { text-decoration: none; color: rgba(255, 255, 255, 0.8); }
+.footer a:hover { text-decoration: underline; }
 
 .header { margin: 0 0 0.5rem; text-align: center; position: relative; z-index: 10; }
 .header__links { margin: 0.5em auto 0; padding-top: 0.25em; max-width: 18.75rem; border-top: 1px solid rgba(255, 255, 255, 0.5); }
@@ -165,16 +179,6 @@ h1 { text-transform: uppercase; font-size: 1.5rem; color: rgba(255, 255, 255, 0.
   .output__button { -ms-flex-negative: 1; flex-shrink: 1; border-radius: 0 2px 2px 0; width: auto; text-transform: uppercase; letter-spacing: 0.1em; } }
 @media screen and (min-width: 43rem) { .output { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: stretch; -ms-flex-pack: stretch; justify-content: stretch; -webkit-box-align: baseline; -ms-flex-align: baseline; align-items: baseline; max-width: 39rem; } }
 
-.input-group input { border-radius: 2px; border: none; background: #FFFFFF; font-family: 'Ubuntu Mono', monospace; color: #000022; padding: 0.5em 0.625em; }
-@media screen and (min-width: 30.85rem) { .input-group { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-align: stretch; -ms-flex-align: stretch; align-items: stretch; -webkit-box-flex: 1; -ms-flex-positive: 1; flex-grow: 1; margin-bottom: 0; } }
-
-@-webkit-keyframes morph { 0% { border-radius: 40% 60% 60% 40% / 70% 30% 70% 30%; }
-  100% { border-radius: 40% 60%; } }
-
-@keyframes morph { 0% { border-radius: 40% 60% 60% 40% / 70% 30% 70% 30%; }
-  100% { border-radius: 40% 60%; } }
-@-webkit-keyframes spin { to { -webkit-transform: rotate(1turn); transform: rotate(1turn); } }
-@keyframes spin { to { -webkit-transform: rotate(1turn); transform: rotate(1turn); } }
 .advanced { width: 90%; max-width: 39rem; text-align: left; margin: 0.5em auto; position: relative; z-index: 5; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; -webkit-box-align: center; -ms-flex-align: center; align-items: center; color: rgba(255, 255, 255, 0.9); }
 @media screen and (min-width: 560px) { .advanced { font-size: 1.25rem; } }
 .advanced__switch { padding: 0.5em 0; -ms-flex-negative: 0; flex-shrink: 0; margin-bottom: 0.5em; }
@@ -191,13 +195,7 @@ h1 { text-transform: uppercase; font-size: 1.5rem; color: rgba(255, 255, 255, 0.
 @media screen and (min-width: 43rem) { .advanced__trigger span { margin-left: 2rem; } }
 .advanced__trigger span:after { content: ""; position: absolute; width: 0.7em; height: 0.7em; border-radius: 50%; background: #000022; position: absolute; left: 0.15em; top: 0.15em; -webkit-transition: left 0.3s ease-out, background 0.3s ease-out; transition: left 0.3s ease-out, background 0.3s ease-out; }
 
-.footer { background: rgba(255, 255, 255, 0.15); min-height: 2.5rem; text-align: center; color: rgba(255, 255, 255, 0.6); font-size: 1rem; line-height: 2.5rem; }
-.footer__heart { padding: 0 0.125em; color: #3023AE; }
-.footer a { text-decoration: none; color: rgba(255, 255, 255, 0.8); }
-.footer a:hover { text-decoration: underline; }
-
-.alert { position: fixed; left: 50%; top: 30%; -webkit-transform: translate(-50%, 0); transform: translate(-50%, 0); color: #000022; font-size: 1.5rem; pointer-events: none; z-index: 100; padding: 1em; background: rgba(255, 255, 255, 0.8); border-radius: 0.5em; white-space: nowrap; }
-
-.links { position: absolute; }
+.input-group input { border-radius: 2px; border: none; background: #FFFFFF; font-family: 'Ubuntu Mono', monospace; color: #000022; padding: 0.5em 0.625em; }
+@media screen and (min-width: 30.85rem) { .input-group { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-align: stretch; -ms-flex-align: stretch; align-items: stretch; -webkit-box-flex: 1; -ms-flex-positive: 1; flex-grow: 1; margin-bottom: 0; } }
 
 /*# sourceMappingURL=main.css.map */

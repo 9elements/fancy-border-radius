@@ -1,0 +1,56 @@
+.header {
+  margin: 0 0 0.5rem;
+  text-align: center;
+  position: relative;
+  z-index: 10;
+
+  &__links {
+    margin: 0.5em auto 0;
+    padding-top: 0.25em;
+    max-width: 18.75rem;
+    border-top: 1px solid rgba($white, 0.5);
+
+    a {
+      font-size: 0.75rem;
+      color: $pink;
+      text-decoration: none;
+      padding: 0 0.5rem;
+      opacity: 0.8;
+      svg {
+        width: 1.35em;
+        height: 1.35em;
+        display: inline-block;
+        fill: $white;
+        vertical-align: middle;
+        margin-top: -0.125rem;
+      }
+      &:hover {
+        opacity: 1;
+      }
+    }
+
+    @media screen and (min-width: 33rem) {
+      margin-top: 1em;
+      padding-top: 0.5em;
+
+      a {
+        font-size: 0.875rem;
+      }
+    }
+  }
+
+}
+
+h1 {
+  text-transform: uppercase;
+  font-size: 1.5rem;
+  color: rgba($white, 0.8);
+  line-height: 1;
+  margin: 0 0 0.125em;
+  letter-spacing: 0.01em;
+  text-align: center;
+
+  @media screen and (min-height: 36.25rem) and (min-width:25rem) {
+    font-size: 2rem;
+  }
+}

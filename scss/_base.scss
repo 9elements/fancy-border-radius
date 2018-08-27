@@ -1,0 +1,51 @@
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  background: $black;
+  color: white;
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+  overflow-x: hidden;
+}
+
+.alert {
+  position: fixed;
+  left: 50%;
+  top: 30%;
+  transform: translate(-50%, 0);
+  color: $black;
+  font-size: 1.5rem;
+  pointer-events: none;
+  z-index: 100;
+  padding: 1em;
+  background: rgba($white, 0.8);
+  border-radius: 0.5em;
+  white-space: nowrap;
+}
+
+.footer {
+  background: rgba($white, 0.15);
+  min-height: 2.5rem;
+  text-align: center;
+  color: rgba($white, 0.6);
+  font-size: 1rem;
+  line-height: 2.5rem;
+
+  &__heart {
+    padding: 0 0.125em;
+    color: $purple;
+  }
+
+  a {
+    text-decoration: none;
+    color: rgba($white, 0.8);
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

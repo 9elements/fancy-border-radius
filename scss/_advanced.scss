@@ -1,0 +1,120 @@
+.advanced {
+  width: 90%;
+  max-width: 39rem;
+  text-align: left;
+  margin: 0.5em auto;
+  position: relative;
+  z-index: 5;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: rgba($white, 0.9);
+
+  @media screen and (min-width: 560px) {
+    font-size: 1.25rem;
+  }
+
+  &__switch {
+    padding: 0.5em 0;
+    flex-shrink: 0;
+    margin-bottom: 0.5em;
+  }
+
+  &__settings {
+    display: none;
+
+    &.visible {
+      display: flex;
+      justify-content: space-between;
+      flex-direction: column;
+      
+  
+      @media screen and (min-width: 31.25rem) {
+        flex-direction: row;
+      }
+    }
+  }
+
+  &__check {
+    visibility: hidden;
+    width: 0;
+    height: 0;
+    display: block;
+    border: none;
+  }
+
+  .input-group {
+    align-items: center;
+    margin-left: 1em;
+    margin-bottom: 0.5em;
+    justify-content: space-between;
+    display: flex;
+
+    label {
+      display: block;
+      margin-right: 0.5em;
+    }
+    input[type="number"] {
+      width: 4.5rem;
+    }
+  }
+
+  &__check:checked + .advanced__trigger {
+    span:after {
+      background: $pink;
+      left: 1.15 * $trigger-size;
+    }
+  }
+
+  &__trigger {
+    display: block;
+    line-height: 1;
+    cursor: pointer;
+
+
+    span {
+      display: inline-block;
+      width: 2 * $trigger-size;
+      height: $trigger-size;
+      border-radius: 0.5 * $trigger-size;
+      background: rgba($white, 0.8);
+      vertical-align: bottom;
+      position: relative;
+
+      @media screen and (min-width: 43rem) {
+        margin-left: 2rem;
+      }
+
+      &:after {
+        content: "";
+        position: absolute;
+        width: 0.7 * $trigger-size;
+        height: 0.7 * $trigger-size;
+        border-radius: 50%;
+        background: $black;
+        position: absolute;
+        left: .15 * $trigger-size;
+        top: .15 * $trigger-size;
+        transition: left 0.3s ease-out, background 0.3s ease-out;
+      }
+    }
+  }
+}
+
+.input-group {
+  input {
+    border-radius: 2px;
+    border: none;
+    background: $white;
+    font-family: 'Ubuntu Mono', monospace;
+    color: $black;
+    padding: 0.5em 0.625em;
+  }
+
+  @media screen and (min-width: 30.85rem) {
+    display: flex;
+    align-items: stretch;
+    flex-grow: 1;
+    margin-bottom: 0;
+  }
+}
