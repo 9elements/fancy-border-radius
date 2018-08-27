@@ -59,24 +59,24 @@ class AdjustableBox {
     this.shapeElem = shapeElem
     this.copiedCode = copiedCode
     this.state = {
-      left: 30,
-      right: 30,
-      top: 30,
-      bottom: 30,
-      left_b: 70,
-      right_b: 70,
-      top_r: 70,
-      bottom_r: 70
+      left: 10,
+      right: 10,
+      top: 10,
+      bottom: 10,
+      left_b: 90,
+      right_b: 90,
+      top_r: 90,
+      bottom_r: 90
     }
     this.handles = {
-      left: new Movable(moveableElems.left, this.updateState.bind(this), 'y', 30),
-      right: new Movable(moveableElems.right, this.updateState.bind(this), 'y', 30),
-      top: new Movable(moveableElems.top, this.updateState.bind(this), 'x', 30),
-      bottom: new Movable(moveableElems.bottom, this.updateState.bind(this), 'x', 30),
-      left_b: new Movable(moveableElems.left_b, this.updateState.bind(this), 'y', 30),
-      right_b: new Movable(moveableElems.right_b, this.updateState.bind(this), 'y', 30),
-      top_r: new Movable(moveableElems.top_r, this.updateState.bind(this), 'x', 30),
-      bottom_r: new Movable(moveableElems.bottom_r, this.updateState.bind(this), 'x', 30)
+      left: new Movable(moveableElems.left, this.updateState.bind(this), 'y', 10),
+      right: new Movable(moveableElems.right, this.updateState.bind(this), 'y', 10),
+      top: new Movable(moveableElems.top, this.updateState.bind(this), 'x', 10),
+      bottom: new Movable(moveableElems.bottom, this.updateState.bind(this), 'x', 10),
+      left_b: new Movable(moveableElems.left_b, this.updateState.bind(this), 'y', 10),
+      right_b: new Movable(moveableElems.right_b, this.updateState.bind(this), 'y', 10),
+      top_r: new Movable(moveableElems.top_r, this.updateState.bind(this), 'x', 10),
+      bottom_r: new Movable(moveableElems.bottom_r, this.updateState.bind(this), 'x', 10)
     }
     copyCode.onclick = this.setClipboard.bind(this)
   }
