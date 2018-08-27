@@ -1,6 +1,6 @@
 # CSS Border-Radius Can Do That?
 
-When you use eight values specifying border-radius in CSS, you can build organic looking shapes. WOW 😱. 
+When you use eight values specifying border-radius in CSS, you can build organic looking shapes. WOW 😱.
 
 [Here](https://medium.com/@nilsbinder/css-border-radius-can-do-that-c3b20bd9405) is an article giving you some background information about the whole CSS border-radius-slash-syntax stuff.
 
