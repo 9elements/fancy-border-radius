@@ -144,7 +144,7 @@ html, body { background: #000022; color: white; font-family: 'M PLUS Rounded 1c'
 .footer a { text-decoration: none; color: rgba(255, 255, 255, 0.8); }
 .footer a:hover { text-decoration: underline; }
 
-.header { margin: 0 0 0.5rem; text-align: center; position: relative; z-index: 10; }
+.header { margin: 0 0 1rem; text-align: center; position: relative; z-index: 10; }
 .header__links { margin: 0.5em auto 0; padding-top: 0.25em; max-width: 18.75rem; border-top: 1px solid rgba(255, 255, 255, 0.5); }
 .header__links a { font-size: 0.75rem; color: #FF0099; text-decoration: none; padding: 0 0.5rem; opacity: 0.8; -webkit-transition: opacity 0.3s ease-out; transition: opacity 0.3s ease-out; }
 .header__links a svg { width: 1.35em; height: 1.35em; display: inline-block; fill: #FFFFFF; vertical-align: middle; margin-top: -0.125rem; }
@@ -159,7 +159,8 @@ h1 { text-transform: uppercase; font-size: 1.5rem; color: rgba(255, 255, 255, 0.
 .container::before, .container::after { content: ""; width: 70vmax; height: 70vmax; position: absolute; background: rgba(255, 255, 255, 0.07); left: -20vmin; top: -20vmin; -webkit-animation: morph 15s linear infinite alternate, spin 20s linear infinite; animation: morph 15s linear infinite alternate, spin 20s linear infinite; z-index: 1; will-change: border-radius, transform; -webkit-transform-origin: 55% 55%; transform-origin: 55% 55%; pointer-events: none; }
 .container::after { width: 70vmin; height: 70vmin; left: auto; right: -10vmin; top: auto; bottom: 0; -webkit-animation: morph 10s linear infinite alternate, spin 26s linear infinite reverse; animation: morph 10s linear infinite alternate, spin 26s linear infinite reverse; -webkit-transform-origin: 20% 20%; transform-origin: 20% 20%; }
 
-.generator { width: 50vmin; height: 50vmin; border: 2px dashed rgba(255, 255, 255, 0.4); position: relative; z-index: 3; margin-left: auto; margin-right: auto; }
+.generator { width: 60vmin; height: 60vmin; border: 2px dashed rgba(255, 255, 255, 0.4); position: relative; z-index: 3; margin-left: auto; margin-right: auto; }
+@media screen and (min-width: 31.875rem) { .generator { width: 50vmin; height: 50vmin; } }
 .generator__shape { width: 100%; height: 100%; background: #FF0099; background-image: linear-gradient(45deg, #3023AE 0%, #FF0099 100%); border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; -webkit-box-shadow: -10vmin 10vmin 0 rgba(255, 255, 255, 0.07); box-shadow: -10vmin 10vmin 0 rgba(255, 255, 255, 0.07); }
 .generator__shape--8v { border-radius: 10%; background-image: linear-gradient(-225deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 40%, rgba(0, 255, 255, 0) 60%, #0ff 100%), linear-gradient(45deg, #3023AE 0%, #FF0099 100%); }
 .generator__handle { display: block; position: absolute; cursor: pointer; width: 2.5rem; height: 2.5rem; }

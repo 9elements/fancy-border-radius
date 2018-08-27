@@ -1,11 +1,16 @@
 .generator {
-  width: 50vmin;
-  height: 50vmin;
+  width: 60vmin;
+  height: 60vmin;
   border: 2px dashed rgba($white,0.4);
   position: relative;
   z-index: 3;
   margin-left: auto;
   margin-right: auto;
+
+  @media screen and (min-width: 31.875rem) {
+    width: 50vmin;
+    height: 50vmin;
+  }
 
   &__shape {
     width: 100%;
