@@ -146,7 +146,7 @@ html, body { background: #000022; color: white; font-family: 'M PLUS Rounded 1c'
 
 .header { margin: 0 0 0.5rem; text-align: center; position: relative; z-index: 10; }
 .header__links { margin: 0.5em auto 0; padding-top: 0.25em; max-width: 18.75rem; border-top: 1px solid rgba(255, 255, 255, 0.5); }
-.header__links a { font-size: 0.75rem; color: #FF0099; text-decoration: none; padding: 0 0.5rem; opacity: 0.8; }
+.header__links a { font-size: 0.75rem; color: #FF0099; text-decoration: none; padding: 0 0.5rem; opacity: 0.8; -webkit-transition: opacity 0.3s ease-out; transition: opacity 0.3s ease-out; }
 .header__links a svg { width: 1.35em; height: 1.35em; display: inline-block; fill: #FFFFFF; vertical-align: middle; margin-top: -0.125rem; }
 .header__links a:hover { opacity: 1; }
 @media screen and (min-width: 33rem) { .header__links { margin-top: 1em; padding-top: 0.5em; }
@@ -161,13 +161,21 @@ h1 { text-transform: uppercase; font-size: 1.5rem; color: rgba(255, 255, 255, 0.
 
 .generator { width: 50vmin; height: 50vmin; border: 2px dashed rgba(255, 255, 255, 0.4); position: relative; z-index: 3; margin-left: auto; margin-right: auto; }
 .generator__shape { width: 100%; height: 100%; background: #FF0099; background-image: linear-gradient(45deg, #3023AE 0%, #FF0099 100%); border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; -webkit-box-shadow: -10vmin 10vmin 0 rgba(255, 255, 255, 0.07); box-shadow: -10vmin 10vmin 0 rgba(255, 255, 255, 0.07); }
+.generator__shape--8v { border-radius: 30% 30% 30% 30% / 30% 30% 30% 30%; }
 .generator__handle { display: block; position: absolute; cursor: pointer; width: 2.5rem; height: 2.5rem; }
-.generator__handle:before { content: ""; position: absolute; width: 1rem; height: 1rem; left: 0.75rem; top: 0.75rem; background: #fff; border: 2px solid #002; -webkit-transition: -webkit-box-shadow 0.2s ease-out; transition: -webkit-box-shadow 0.2s ease-out; transition: box-shadow 0.2s ease-out; transition: box-shadow 0.2s ease-out, -webkit-box-shadow 0.2s ease-out; will-change: box-shadow; }
-.generator__handle.active:before, .generator__handle:hover:before { background: #0ff; -webkit-box-shadow: 0 0 0 4px #FFF; box-shadow: 0 0 0 4px #FFF; }
+.generator__handle:before { content: ""; position: absolute; width: 1rem; height: 1rem; left: 0.75rem; top: 0.75rem; background: #FFFFFF; border: 2px solid #000022; -webkit-transition: -webkit-box-shadow 0.2s ease-out; transition: -webkit-box-shadow 0.2s ease-out; transition: box-shadow 0.2s ease-out; transition: box-shadow 0.2s ease-out, -webkit-box-shadow 0.2s ease-out; will-change: box-shadow; }
+.generator__handle--second:before { background: #3023AE; border: 2px solid #FFFFFF; }
+.generator__handle--third:before { background: #FF0099; border: 2px solid #FFFFFF; }
+.generator__handle--fourth:before { background: #aaa; border: 2px solid #FFFFFF; }
+.generator__handle.active:before, .generator__handle:hover:before { background: #0ff; -webkit-box-shadow: 0 0 0 4px #FFF; box-shadow: 0 0 0 4px #FFF; border: 2px solid #000022; }
 .generator #top { top: -1.25rem; left: 30%; -webkit-transform: translateX(-50%); transform: translateX(-50%); }
 .generator #bottom { bottom: -1.25rem; left: 30%; -webkit-transform: translateX(-50%); transform: translateX(-50%); }
 .generator #left { left: -1.25rem; top: 30%; -webkit-transform: translateY(-50%); transform: translateY(-50%); }
 .generator #right { right: -1.25rem; top: 30%; -webkit-transform: translateY(-50%); transform: translateY(-50%); }
+.generator #top_r { top: -1.25rem; left: 70%; -webkit-transform: translateX(-50%); transform: translateX(-50%); }
+.generator #bottom_r { bottom: -1.25rem; left: 70%; -webkit-transform: translateX(-50%); transform: translateX(-50%); }
+.generator #left_b { left: -1.25rem; top: 70%; -webkit-transform: translateY(-50%); transform: translateY(-50%); }
+.generator #right_b { right: -1.25rem; top: 70%; -webkit-transform: translateY(-50%); transform: translateY(-50%); }
 
 .output { width: 90%; text-align: left; margin-top: 1.5em; font-size: 1.125rem; line-height: 1.5; margin-left: auto; margin-right: auto; }
 .output__label { -webkit-box-flex: 0; -ms-flex: 0 0 auto; flex: 0 0 auto; margin-bottom: 0.5em; margin-right: 1em; color: rgba(255, 255, 255, 0.9); }
@@ -189,11 +197,11 @@ h1 { text-transform: uppercase; font-size: 1.5rem; color: rgba(255, 255, 255, 0.
 .advanced .input-group { -webkit-box-align: center; -ms-flex-align: center; align-items: center; margin-left: 1em; margin-bottom: 0.5em; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; display: -webkit-box; display: -ms-flexbox; display: flex; }
 .advanced .input-group label { display: block; margin-right: 0.5em; }
 .advanced .input-group input[type="number"] { width: 4.5rem; }
-.advanced__check:checked + .advanced__trigger span:after { background: #FF0099; left: 1.15em; }
+.advanced__check:checked + .advanced__trigger span:after { background: #FF0099; left: 1.15em; border-radius: 37% 63% 55% 45% / 25% 50% 50% 75%; }
 .advanced__trigger { display: block; line-height: 1; cursor: pointer; }
 .advanced__trigger span { display: inline-block; width: 2em; height: 1em; border-radius: 0.5em; background: rgba(255, 255, 255, 0.8); vertical-align: bottom; position: relative; }
 @media screen and (min-width: 43rem) { .advanced__trigger span { margin-left: 2rem; } }
-.advanced__trigger span:after { content: ""; position: absolute; width: 0.7em; height: 0.7em; border-radius: 50%; background: #000022; position: absolute; left: 0.15em; top: 0.15em; -webkit-transition: left 0.3s ease-out, background 0.3s ease-out; transition: left 0.3s ease-out, background 0.3s ease-out; }
+.advanced__trigger span:after { content: ""; position: absolute; width: 0.7em; height: 0.7em; border-radius: 50% 56% 29% 70%/50% 73% 38% 50%; background: #000022; position: absolute; left: 0.15em; top: 0.15em; -webkit-transition: left 0.3s ease-out, background 0.3s ease-out, border-radius 0.4s ease-in-out; transition: left 0.3s ease-out, background 0.3s ease-out, border-radius 0.4s ease-in-out; }
 
 .input-group input { border-radius: 2px; border: none; background: #FFFFFF; font-family: 'Ubuntu Mono', monospace; color: #000022; padding: 0.5em 0.625em; }
 @media screen and (min-width: 30.85rem) { .input-group { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-align: stretch; -ms-flex-align: stretch; align-items: stretch; -webkit-box-flex: 1; -ms-flex-positive: 1; flex-grow: 1; margin-bottom: 0; } }

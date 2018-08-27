@@ -14,6 +14,10 @@
     background-image: linear-gradient(45deg, $purple 0%, $pink 100%);
     border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
     box-shadow: -10vmin 10vmin 0 rgba(255,255,255,0.07);
+
+    &--8v {
+      border-radius: 30% 30% 30% 30% / 30% 30% 30% 30%;
+    }
   }
 
   &__handle {
@@ -30,16 +34,32 @@
       height: $handle-inner-width;
       left: ($handle-outer-width - $handle-inner-width) / 2;
       top: ($handle-outer-width - $handle-inner-width) / 2;
-      background: #fff;
-      border: 2px solid #002;
+      background: $white;
+      border: 2px solid $black;
       transition: box-shadow 0.2s ease-out;
       will-change: box-shadow;
+    }
+
+    &--second:before {
+      background: $purple;
+      border: 2px solid $white;
+    }
+
+    &--third:before {
+      background: $pink;
+      border: 2px solid $white;
+    }
+
+    &--fourth:before {
+      background: #aaa;
+      border: 2px solid $white;
     }
 
     &.active:before,
     &:hover:before {
       background: #0ff;
       box-shadow: 0 0 0 4px #FFF;
+      border: 2px solid $black;
     }
   }
   #top {
@@ -60,6 +80,26 @@
   #right {
     right: -($handle-outer-width / 2);
     top: 30%;
+    transform: translateY(-50%);
+  }
+  #top_r {
+    top: -($handle-outer-width / 2);
+    left: 70%;
+    transform: translateX(-50%);
+  }
+  #bottom_r {
+    bottom: -($handle-outer-width / 2);
+    left: 70%;
+    transform: translateX(-50%);
+  }
+  #left_b {
+    left: -($handle-outer-width / 2);
+    top: 70%;
+    transform: translateY(-50%);
+  }
+  #right_b {
+    right: -($handle-outer-width / 2);
+    top: 70%;
     transform: translateY(-50%);
   }
 }

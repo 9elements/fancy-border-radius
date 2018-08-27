@@ -63,6 +63,7 @@
     span:after {
       background: $pink;
       left: 1.15 * $trigger-size;
+      border-radius: 37% 63% 55% 45% / 25% 50% 50% 75%;
     }
   }
 
@@ -90,12 +91,12 @@
         position: absolute;
         width: 0.7 * $trigger-size;
         height: 0.7 * $trigger-size;
-        border-radius: 50%;
+        border-radius: 50% 56% 29% 70% / 50% 73% 38% 50% ;
         background: $black;
         position: absolute;
         left: .15 * $trigger-size;
         top: .15 * $trigger-size;
-        transition: left 0.3s ease-out, background 0.3s ease-out;
+        transition: left 0.3s ease-out, background 0.3s ease-out, border-radius 0.4s ease-in-out;
       }
     }
   }
