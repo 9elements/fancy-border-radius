@@ -1,0 +1,38 @@
+{
+  "name": "fancy-border-radius",
+  "version": "1.0.0",
+  "description": "When you use eight values specifying border-radius in CSS, you can build organic looking shapes. WOW 😱.",
+  "main": "src/index.js",
+  "scripts": {
+    "start:dev": "webpack-dev-server --config-name full-control --mode development --hot",
+    "start:dev-fullcontrol": "webpack-dev-server --config-name full-control --mode development --hot",
+    "build": "webpack --mode production",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/9elements/fancy-border-radius.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/9elements/fancy-border-radius/issues"
+  },
+  "homepage": "https://github.com/9elements/fancy-border-radius#readme",
+  "devDependencies": {
+    "@babel/preset-env": "^7.0.0",
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^8.0.0",
+    "node-sass": "^4.9.3",
+    "sass-loader": "^7.1.0",
+    "webpack": "^4.17.1",
+    "webpack-cli": "^3.1.0",
+    "webpack-dev-server": "^3.1.7"
+  },
+  "dependencies": {
+    "@babel/core": "^7.0.0",
+    "css-loader": "^1.0.0",
+    "style-loader": "^0.23.0"
+  }
+}

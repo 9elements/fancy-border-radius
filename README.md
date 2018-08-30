@@ -7,5 +7,18 @@ When you use eight values specifying border-radius in CSS, you can build organic
 **TL/DR:** — simply use our [visual generator](https://9elements.github.io/fancy-border-radius/).
 
 
-## How to build SCSS files:
-```sass main.scss build/main.css```
+## How to develop:
+```
+npm install
+npm run start:dev
+or
+npm run start:dev-fullcontrol
+```
+open http://localhost:8080/
+Serves the bundle in-memory.
+
+## How to for production build:
+```
+npm run build
+```
+Create dist/main.js and dist/main8v.js for production
