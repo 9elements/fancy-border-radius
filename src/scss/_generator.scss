@@ -60,15 +60,15 @@
       background: #0ff;
     }
 
-    &.active:before:not(.generator__handle--8v),
-    &:hover:before:not(.generator__handle--8v) {
-      background: #0ff;
+    &--8v.active:before,
+    &--8v:hover:before {
       box-shadow: 0 0 0 4px #FFF;
       border: 2px solid $black;
     }
 
-    &--8v.active:before,
-    &--8v:hover:before {
+    &:not(.generator__handle--8v).active:before,
+    &:not(.generator__handle--8v):hover:before {
+      background: #0ff;
       box-shadow: 0 0 0 4px #FFF;
       border: 2px solid $black;
     }
