@@ -1,31 +1,61 @@
 
-import Movable from "./movable";
-
+import Movable from './movable'
 export default class AdjustableBox {
-  constructor (shapeElem, generatorElem, moveableElems, copyCode, copiedCode) {
-    this.generatorElem = generatorElem
-    this.shapeElem = shapeElem
-    this.copiedCode = copiedCode
-    this.initHandles(moveableElems)
-    this.initState()
-    copyCode.onclick = this.setClipboard.bind(this)
+  constructor ({
+    shapeElemId = 'shape',
+    generatorElemId = 'code',
+    copyCodeId = 'copy',
+    copiedCodeId = 'clipboard_copied',
+    boxContainerId = 'box',
+    widthInputId = 'width',
+    heightInputId = 'height',
+    enableAdvancedId = 'enable-advanced',
+    initState = null,
+    moveableElems }
+    = {}) {
+    this.generatorElem = document.getElementById(generatorElemId)
+    this.shapeElem = document.getElementById(shapeElemId)
+    this.copiedCode = document.getElementById(copiedCodeId)
+    this.boxContainer = document.getElementById(boxContainerId)
+    this.widthInput = document.getElementById(widthInputId)
+    this.heightInput = document.getElementById(heightInputId)
+    this.widthInput.onchange = () => { this.updateState(this.widthInput.value, 'width') }
+    this.heightInput.onchange = () => { this.updateState(this.heightInput.value, 'height') }
+    this.enableAdvanced = document.getElementById(enableAdvancedId)
+    this.enableAdvanced.onclick = this.enableAdvancedOnClick.bind(this)
+    this.initState(initState)
+    this.initAdvanced()
+    this.handles = this.initHandles(moveableElems)
+    document.getElementById(copyCodeId).onclick = this.setClipboard.bind(this)
   }
-  initState() {
-    this.state = {
-      left: 30,
-      right: 30,
-      top: 30,
-      bottom: 30
+  initHandles (moveableElems) {
+    throw new Error('You have to implement the method initHandles!')
+  }
+  updateBorderRadius () {
+    throw new Error('You have to implement the method updateBorderRadius!')
+  }
+  initState (state) {
+    throw new Error('You have to implement the method initState!')
+  }
+  initAdvanced () {
+    if (this.state.width !== '' && this.state.height !== '') {
+      this.enableAdvanced.checked = true
+      document.getElementById('dimension-input').classList.add('visible')
     }
   }
-  initHandles(moveableElems) {
-    this.handles = {
-      left: new Movable(moveableElems.left, this.updateState.bind(this), 'y', 30),
-      right: new Movable(moveableElems.right, this.updateState.bind(this), 'y', 30),
-      top: new Movable(moveableElems.top, this.updateState.bind(this), 'x', 30),
-      bottom: new Movable(moveableElems.bottom, this.updateState.bind(this), 'x', 30)
+  enableAdvancedOnClick (e) {
+    if (this.enableAdvanced.checked) {
+      document.getElementById('dimension-input').classList.add('visible')
+      this.state.width = this.boxContainer.offsetWidth
+      this.state.height = this.boxContainer.offsetHeight
+      this.updateUI()
+    } else {
+      document.getElementById('dimension-input').classList.remove('visible')
+      this.updateState('', 'width')
+      this.updateState('', 'height')
     }
   }
+
   setClipboard () {
     this.copyToClipboard(this.generatorElem.innerHTML)
     this.copiedCode.innerHTML = '<div class="alert">Copied to clipboard 👍</div>'
@@ -36,19 +66,26 @@ export default class AdjustableBox {
   }
   updateState (val, key) {
     this.state[key] = val
-    this.updateBorderRadius()
+    this.updateUI()
   }
-  updateBorderRadius () {
-    var brd = this.state.top + '% '
-    brd += (100 - this.state.top) + '% '
-    brd += (100 - this.state.bottom) + '% '
-    brd += this.state.bottom + '% / '
-    brd += this.state.left + '% '
-    brd += this.state.right + '% '
-    brd += (100 - this.state.right) + '% '
-    brd += (100 - this.state.left) + '% '
-    this.shapeElem.style['border-radius'] = brd
-    this.generatorElem.innerHTML = brd
+  updateUI () {
+    this.updateBorderRadius()
+    this.updateBox()
+    this.saveUrlParams()
+  }
+  updateBox () {
+    if (!this.enableAdvanced.checked) {
+      return
+    }
+    let styleHeight = this.state.height == '' ? '' : this.state.height + 'px'
+    let styleWidth = this.state.width == '' ? '' : this.state.width + 'px'
+    this.boxContainer.style.height = styleHeight
+    this.boxContainer.style.width = styleWidth
+    this.heightInput.value = this.state.height
+    this.widthInput.value = this.state.width
+  }
+  saveUrlParams () {
+    throw new Error('You have to implement the method saveUrlParams!')
   }
   copyToClipboard (str) {
     const el = document.createElement('textarea')

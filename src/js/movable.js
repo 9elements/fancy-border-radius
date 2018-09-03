@@ -7,6 +7,8 @@ export default class Movable {
     this.onChange = onChange
     this.elem.onmousedown = this.dragMouseDown.bind(this)
     this.elem.ontouchstart = this.dragMouseDown.bind(this)
+    this.setInitPos(initPosition)
+    this.onChange(this.pos, this.elem.id)
   }
   dragMouseDown (e) {
     e = e || window.event
@@ -27,6 +29,13 @@ export default class Movable {
       this.setPos(touchobj.clientX, touchobj.clientY)
     } else {
       this.setPos(e.clientX, e.clientY)
+    }
+  }
+  setInitPos(pos) {
+    if (this.axis == 'x') {
+      this.elem.style.left = pos + '%'
+    } else {
+      this.elem.style.top = pos + '%'
     }
   }
   setPos (_posX, _posY) {
