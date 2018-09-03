@@ -104,4 +104,22 @@ export default class AdjustableBox {
       document.getSelection().addRange(selected)
     }
   };
+  static loadUrlParams (url) {
+    const regex = /#(\d\d?|100)\.(\d\d?|100)\.(\d\d?|100)\.(\d\d?|100)-(?:(\d\d?|100)\.(\d\d?|100)\.(\d\d?|100)\.(\d\d?|100))?-(\d*).(\d*)/gm
+    let paramsToAttribute = ['left', 'top', 'right', 'bottom', 'left_b', 'top_r', 'right_b', 'bottom_r', 'height', 'width']
+    let attributes = {}
+    let m
+    if (!regex.test(url)) {
+      return null
+    }
+    regex.lastIndex = 0
+    while ((m = regex.exec(url)) !== null) {
+      m.forEach((match, groupIndex) => {
+        if (groupIndex != 0) {
+          attributes[paramsToAttribute[groupIndex - 1]] = match
+        }
+      })
+    }
+    return attributes
+  }
 }
