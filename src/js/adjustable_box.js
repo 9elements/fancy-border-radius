@@ -53,6 +53,8 @@ export default class AdjustableBox {
       document.getElementById('dimension-input').classList.remove('visible')
       this.updateState('', 'width')
       this.updateState('', 'height')
+      this.boxContainer.style.height = ''
+      this.boxContainer.style.width = ''
     }
   }
 
