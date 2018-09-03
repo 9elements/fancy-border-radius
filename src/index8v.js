@@ -11,5 +11,5 @@ var movables = {
   bottom_r: document.getElementById('bottom_r'),
   top_r: document.getElementById('top_r')
 }
-let params = loadUrlParams(window.location.href)
+let params = FullControlBox.loadUrlParams(window.location.href)
 var myBox = new FullControlBox({moveableElems: movables, initState: params})
