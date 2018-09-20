@@ -29,11 +29,12 @@ body {
 
 .footer {
   background: rgba($white, 0.15);
-  min-height: 2.5rem;
+  min-height: 2rem;
   text-align: center;
   color: rgba($white, 0.6);
-  font-size: 1rem;
-  line-height: 2.5rem;
+  font-size: 0.875rem;
+  line-height: 1.2rem;
+  padding: 0.4rem 0;
 
   &__heart {
     padding: 0 0.125em;
