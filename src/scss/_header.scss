@@ -7,7 +7,7 @@
   &__links {
     margin: 0.5em auto 0;
     padding-top: 0.25em;
-    max-width: 18.75rem;
+    max-width: 26.75rem;
     border-top: 1px solid rgba($white, 0.5);
 
     a {
@@ -17,12 +17,13 @@
       padding: 0 0.5rem;
       opacity: 0.8;
       transition: opacity 0.3s ease-out;
+      white-space: nowrap;
       svg {
         width: 1.35em;
         height: 1.35em;
         display: inline-block;
         fill: $white;
-        vertical-align: middle;
+        vertical-align: -0.3em;
         margin-top: -0.125rem;
       }
       &:hover {
