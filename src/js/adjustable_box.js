@@ -1,5 +1,4 @@
-
-import Movable from './movable'
+import clipboard from 'clipboard-polyfill/build/clipboard-polyfill.promise'
 export default class AdjustableBox {
   constructor ({
     shapeElemId = 'shape',
@@ -59,18 +58,18 @@ export default class AdjustableBox {
   }
 
   setClipboard () {
-    if (this.copyToClipboard(this.generatorElem.innerHTML)) {
+    clipboard.writeText(this.generatorElem.innerHTML).then(() => {
       this.copiedCode.innerHTML = '<div class="alert">Copied to clipboard 👍</div>'
-    } else {
+    },  () => {
       this.copiedCode.innerHTML = '<div class="alert">💔 Not Supported</div>'
-    }
+    })
     setTimeout(() => {
       this.copiedCode.innerHTML = ''
     }
       , 2000)
   }
   setUrlHash (hash) {
-    if (window.history && "pushState" in window.history) {
+    if (window.history && 'pushState' in window.history) {
       history.pushState(null, null, '#' + hash)
     } else {
       window.location.hash = hash
@@ -99,28 +98,6 @@ export default class AdjustableBox {
   saveUrlParams () {
     throw new Error('You have to implement the method saveUrlParams!')
   }
-  copyToClipboard (str) {
-    // if (navigator.clipboard && "writeText" in navigator.clipboard) {
-    //   navigator.clipboard.writeText(str)
-    //   return
-    // }
-    const el = document.createElement('textarea')
-    el.value = str
-    el.setAttribute('readonly', '')
-    el.style.position = 'absolute'
-    el.style.left = '-9999px'
-    document.body.appendChild(el)
-    const selected =
-      document.getSelection().rangeCount > 0 ? document.getSelection().getRangeAt(0) : false
-    el.select()
-    let status = document.execCommand('copy')
-    document.body.removeChild(el)
-    if (selected) {
-      document.getSelection().removeAllRanges()
-      document.getSelection().addRange(selected)
-    }
-    return status
-  };
   static loadUrlParams (url) {
     const regex = /#(\d\d?|100)\.(\d\d?|100)\.(\d\d?|100)\.(\d\d?|100)-(?:(\d\d?|100)\.(\d\d?|100)\.(\d\d?|100)\.(\d\d?|100))?-(\d*).(\d*)/gm
     let paramsToAttribute = ['left', 'top', 'right', 'bottom', 'left_b', 'top_r', 'right_b', 'bottom_r', 'height', 'width']
