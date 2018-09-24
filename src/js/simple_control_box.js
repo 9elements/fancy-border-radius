@@ -36,7 +36,7 @@ export default class SimpleControlBox extends AdjustableBox {
   }
   saveUrlParams () {
     const { left, top, right, bottom, width, height } = this.state
-    let hash = `#${left}.${top}.${right}.${bottom}--${height}.${width}`
-    window.location.hash = hash
+    let hash = `${left}.${top}.${right}.${bottom}--${height}.${width}`
+    this.setUrlHash(hash)
   }
 }

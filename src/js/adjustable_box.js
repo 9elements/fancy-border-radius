@@ -59,12 +59,22 @@ export default class AdjustableBox {
   }
 
   setClipboard () {
-    this.copyToClipboard(this.generatorElem.innerHTML)
-    this.copiedCode.innerHTML = '<div class="alert">Copied to clipboard 👍</div>'
+    if (this.copyToClipboard(this.generatorElem.innerHTML)) {
+      this.copiedCode.innerHTML = '<div class="alert">Copied to clipboard 👍</div>'
+    } else {
+      this.copiedCode.innerHTML = '<div class="alert">💔 Not Supported</div>'
+    }
     setTimeout(() => {
       this.copiedCode.innerHTML = ''
     }
       , 2000)
+  }
+  setUrlHash (hash) {
+    if (window.history && "pushState" in window.history) {
+      history.pushState(null, null, '#' + hash)
+    } else {
+      window.location.hash = hash
+    }
   }
   updateState (val, key) {
     this.state[key] = val
@@ -90,6 +100,10 @@ export default class AdjustableBox {
     throw new Error('You have to implement the method saveUrlParams!')
   }
   copyToClipboard (str) {
+    // if (navigator.clipboard && "writeText" in navigator.clipboard) {
+    //   navigator.clipboard.writeText(str)
+    //   return
+    // }
     const el = document.createElement('textarea')
     el.value = str
     el.setAttribute('readonly', '')
@@ -99,12 +113,13 @@ export default class AdjustableBox {
     const selected =
       document.getSelection().rangeCount > 0 ? document.getSelection().getRangeAt(0) : false
     el.select()
-    document.execCommand('copy')
+    let status = document.execCommand('copy')
     document.body.removeChild(el)
     if (selected) {
       document.getSelection().removeAllRanges()
       document.getSelection().addRange(selected)
     }
+    return status
   };
   static loadUrlParams (url) {
     const regex = /#(\d\d?|100)\.(\d\d?|100)\.(\d\d?|100)\.(\d\d?|100)-(?:(\d\d?|100)\.(\d\d?|100)\.(\d\d?|100)\.(\d\d?|100))?-(\d*).(\d*)/gm

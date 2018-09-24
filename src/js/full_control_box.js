@@ -45,7 +45,7 @@ export default class FullControlBox extends AdjustableBox {
   }
   saveUrlParams () {
     const { left, top, right, bottom, width, height, left_b, top_r, right_b, bottom_r } = this.state
-    let hash = `#${left}.${top}.${right}.${bottom}-${left_b}.${top_r}.${right_b}.${bottom_r}-${height}.${width}`
-    window.location.hash = hash
+    let hash = `${left}.${top}.${right}.${bottom}-${left_b}.${top_r}.${right_b}.${bottom_r}-${height}.${width}`
+    this.setUrlHash(hash)
   }
 }
