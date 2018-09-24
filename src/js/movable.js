@@ -41,10 +41,10 @@ export default class Movable {
   setPos (_posX, _posY) {
     let boxRect = this.elem.parentNode.getBoundingClientRect()
     if (this.axis == 'x') {
-      this.pos = this.valBetween(((_posX - 5 - boxRect['x']).toFixed(0) * 100 / boxRect['width']).toFixed(0), 0, 100)
+      this.pos = this.valBetween(((_posX - 5 - boxRect['left']).toFixed(0) * 100 / boxRect['width']).toFixed(0), 0, 100)
       this.elem.style.left = this.pos + '%'
     } else {
-      this.pos = this.valBetween(((_posY - 5 - boxRect['y']).toFixed(0) * 100 / boxRect['height']).toFixed(0), 0, 100)
+      this.pos = this.valBetween(((_posY - 5 - boxRect['top']).toFixed(0) * 100 / boxRect['height']).toFixed(0), 0, 100)
       this.elem.style.top = this.pos + '%'
     }
     this.onChange(this.pos, this.elem.id)
