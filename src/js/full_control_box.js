@@ -8,10 +8,10 @@ export default class FullControlBox extends AdjustableBox {
       right: 10,
       top: 10,
       bottom: 10,
-      left_b: 90,
-      right_b: 90,
-      top_r: 90,
-      bottom_r: 90,
+      leftBottom: 90,
+      rightBottom: 90,
+      topRight: 90,
+      bottomRight: 90,
       width: '',
       height: '',
       advancedMode: false
@@ -25,27 +25,27 @@ export default class FullControlBox extends AdjustableBox {
       right: new Movable(moveableElems.right, this.updateState.bind(this), 'y', this.state.right),
       top: new Movable(moveableElems.top, this.updateState.bind(this), 'x', this.state.top),
       bottom: new Movable(moveableElems.bottom, this.updateState.bind(this), 'x', this.state.bottom),
-      left_b: new Movable(moveableElems.left_b, this.updateState.bind(this), 'y', this.state.left_b),
-      right_b: new Movable(moveableElems.right_b, this.updateState.bind(this), 'y', this.state.right_b),
-      top_r: new Movable(moveableElems.top_r, this.updateState.bind(this), 'x', this.state.top_r),
-      bottom_r: new Movable(moveableElems.bottom_r, this.updateState.bind(this), 'x', this.state.bottom_r)
+      leftBottom: new Movable(moveableElems.leftBottom, this.updateState.bind(this), 'y', this.state.leftBottom),
+      rightBottom: new Movable(moveableElems.rightBottom, this.updateState.bind(this), 'y', this.state.rightBottom),
+      topRight: new Movable(moveableElems.topRight, this.updateState.bind(this), 'x', this.state.topRight),
+      bottomRight: new Movable(moveableElems.bottomRight, this.updateState.bind(this), 'x', this.state.bottomRight)
     }
   }
   updateBorderRadius () {
     var brd = this.state.top + '% '
-    brd += (100 - this.state.top_r) + '% '
-    brd += (100 - this.state.bottom_r) + '% '
+    brd += (100 - this.state.topRight) + '% '
+    brd += (100 - this.state.bottomRight) + '% '
     brd += this.state.bottom + '% / '
     brd += this.state.left + '% '
     brd += this.state.right + '% '
-    brd += (100 - this.state.right_b) + '% '
-    brd += (100 - this.state.left_b) + '% '
+    brd += (100 - this.state.rightBottom) + '% '
+    brd += (100 - this.state.leftBottom) + '% '
     this.shapeElem.style['border-radius'] = brd
     this.generatorElem.innerHTML = brd
   }
   saveUrlParams () {
-    const { left, top, right, bottom, width, height, left_b, top_r, right_b, bottom_r } = this.state
-    let hash = `${left}.${top}.${right}.${bottom}-${left_b}.${top_r}.${right_b}.${bottom_r}-${height}.${width}`
+    const { left, top, right, bottom, width, height, leftBottom, topRight, rightBottom, bottomRight } = this.state
+    let hash = `${left}.${top}.${right}.${bottom}-${leftBottom}.${topRight}.${rightBottom}.${bottomRight}-${height}.${width}`
     this.setUrlHash(hash)
   }
 }

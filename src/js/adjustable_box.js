@@ -60,7 +60,7 @@ export default class AdjustableBox {
   setClipboard () {
     clipboard.writeText(this.generatorElem.innerHTML).then(() => {
       this.copiedCode.innerHTML = '<div class="alert">Copied to clipboard 👍</div>'
-    },  () => {
+    }, () => {
       this.copiedCode.innerHTML = '<div class="alert">💔 Not Supported</div>'
     })
     setTimeout(() => {
@@ -100,7 +100,7 @@ export default class AdjustableBox {
   }
   static loadUrlParams (url) {
     const regex = /#(\d\d?|100)\.(\d\d?|100)\.(\d\d?|100)\.(\d\d?|100)-(?:(\d\d?|100)\.(\d\d?|100)\.(\d\d?|100)\.(\d\d?|100))?-(\d*).(\d*)/gm
-    let paramsToAttribute = ['left', 'top', 'right', 'bottom', 'left_b', 'top_r', 'right_b', 'bottom_r', 'height', 'width']
+    let paramsToAttribute = ['left', 'top', 'right', 'bottom', 'leftBottom', 'topRight', 'rightBottom', 'bottomRight', 'height', 'width']
     let attributes = {}
     let m
     if (!regex.test(url)) {

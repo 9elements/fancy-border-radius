@@ -109,22 +109,22 @@
       top: 10%;
     }
   }
-  #top_r {
+  #topRight {
     top: -($handle-outer-width / 2);
     left: 90%;
     transform: translateX(-50%);
   }
-  #bottom_r {
+  #bottomRight {
     bottom: -($handle-outer-width / 2);
     left: 90%;
     transform: translateX(-50%);
   }
-  #left_b {
+  #leftBottom {
     left: -($handle-outer-width / 2);
     top: 90%;
     transform: translateY(-50%);
   }
-  #right_b {
+  #rightBottom {
     right: -($handle-outer-width / 2);
     top: 90%;
     transform: translateY(-50%);
