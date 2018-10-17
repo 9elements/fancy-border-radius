@@ -21,14 +21,14 @@ export default class FullControlBox extends AdjustableBox {
 
   initHandles (moveableElems) {
     return {
-      left: new Movable(moveableElems.left, this.updateState.bind(this), 'y', this.state.left),
-      right: new Movable(moveableElems.right, this.updateState.bind(this), 'y', this.state.right),
-      top: new Movable(moveableElems.top, this.updateState.bind(this), 'x', this.state.top),
-      bottom: new Movable(moveableElems.bottom, this.updateState.bind(this), 'x', this.state.bottom),
-      leftBottom: new Movable(moveableElems.leftBottom, this.updateState.bind(this), 'y', this.state.leftBottom),
-      rightBottom: new Movable(moveableElems.rightBottom, this.updateState.bind(this), 'y', this.state.rightBottom),
-      topRight: new Movable(moveableElems.topRight, this.updateState.bind(this), 'x', this.state.topRight),
-      bottomRight: new Movable(moveableElems.bottomRight, this.updateState.bind(this), 'x', this.state.bottomRight)
+      left: new Movable(moveableElems.left, this.updateState.bind(this), 'y', this.state.left, this.saveUrlParams.bind(this)),
+      right: new Movable(moveableElems.right, this.updateState.bind(this), 'y', this.state.right, this.saveUrlParams.bind(this)),
+      top: new Movable(moveableElems.top, this.updateState.bind(this), 'x', this.state.top, this.saveUrlParams.bind(this)),
+      bottom: new Movable(moveableElems.bottom, this.updateState.bind(this), 'x', this.state.bottom, this.saveUrlParams.bind(this)),
+      leftBottom: new Movable(moveableElems.leftBottom, this.updateState.bind(this), 'y', this.state.leftBottom, this.saveUrlParams.bind(this)),
+      rightBottom: new Movable(moveableElems.rightBottom, this.updateState.bind(this), 'y', this.state.rightBottom, this.saveUrlParams.bind(this)),
+      topRight: new Movable(moveableElems.topRight, this.updateState.bind(this), 'x', this.state.topRight, this.saveUrlParams.bind(this)),
+      bottomRight: new Movable(moveableElems.bottomRight, this.updateState.bind(this), 'x', this.state.bottomRight, this.saveUrlParams.bind(this))
     }
   }
   updateBorderRadius () {

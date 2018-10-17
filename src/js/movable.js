@@ -1,10 +1,11 @@
 export default class Movable {
-  constructor (elem, onChange, axis = 'x', initPosition = 30) {
+  constructor (elem, onChange, axis = 'x', initPosition = 30, onDragEnd = () => {}) {
     this.axis = axis
     this.pos = initPosition
     this.elem = elem
 
     this.onChange = onChange
+    this.onDragEnd = onDragEnd
     this.elem.onmousedown = this.dragMouseDown.bind(this)
     this.elem.ontouchstart = this.dragMouseDown.bind(this)
     this.setInitPos(initPosition)
@@ -52,6 +53,7 @@ export default class Movable {
 
   closeDragElement () {
     this.currentSpan.classList.remove('active')
+    this.onDragEnd()
     document.onmouseup = null
     document.onmousemove = null
     document.ontouchend = null

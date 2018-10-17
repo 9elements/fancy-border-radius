@@ -16,10 +16,10 @@ export default class SimpleControlBox extends AdjustableBox {
   }
   initHandles (moveableElems) {
     return {
-      left: new Movable(moveableElems.left, this.updateState.bind(this), 'y', this.state.left),
-      right: new Movable(moveableElems.right, this.updateState.bind(this), 'y', this.state.right),
-      top: new Movable(moveableElems.top, this.updateState.bind(this), 'x', this.state.top),
-      bottom: new Movable(moveableElems.bottom, this.updateState.bind(this), 'x', this.state.bottom)
+      left: new Movable(moveableElems.left, this.updateState.bind(this), 'y', this.state.left, this.saveUrlParams.bind(this)),
+      right: new Movable(moveableElems.right, this.updateState.bind(this), 'y', this.state.right, this.saveUrlParams.bind(this)),
+      top: new Movable(moveableElems.top, this.updateState.bind(this), 'x', this.state.top, this.saveUrlParams.bind(this)),
+      bottom: new Movable(moveableElems.bottom, this.updateState.bind(this), 'x', this.state.bottom, this.saveUrlParams.bind(this))
     }
   }
   updateBorderRadius () {

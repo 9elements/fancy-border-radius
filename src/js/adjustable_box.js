@@ -82,7 +82,6 @@ export default class AdjustableBox {
   updateUI () {
     this.updateBorderRadius()
     this.updateBox()
-    this.saveUrlParams()
   }
   updateBox () {
     if (!this.enableAdvanced.checked) {
