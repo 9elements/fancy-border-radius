@@ -1,0 +1,25 @@
+.company-link {
+  border: 1px solid $pink;
+  font-size: 1rem;
+  display: block;
+  margin: 0 auto auto;
+  margin-bottom: 1rem;
+  padding: 1em;
+  width: 14em;
+  color: $white;
+  text-decoration: none;
+  background: rgba(255, 255, 255, 0.15);
+  position: relative;
+
+  @media screen and (min-width: 68rem) {
+    position: absolute;
+    top: 12%;
+    left: calc(50% + 25rem);
+    transform: translate(-50%, -50%);
+  }
+
+  // @media screen and (min-width: 73rem) {
+  //   top: 8rem;
+  //   left: calc(50% + 27rem);
+  // }
+}
