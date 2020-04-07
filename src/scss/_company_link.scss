@@ -11,15 +11,13 @@
   background: rgba(255, 255, 255, 0.15);
   position: relative;
 
-  @media screen and (min-width: 68rem) {
+  @media screen and (min-width: 62rem) and (orientation: landscape){
     position: absolute;
-    top: 12%;
-    left: calc(50% + 25rem);
-    transform: translate(-50%, -50%);
+    top: 7%;
+    right: 1rem;
   }
 
-  // @media screen and (min-width: 73rem) {
-  //   top: 8rem;
-  //   left: calc(50% + 27rem);
-  // }
+  @media screen and (min-width: 82rem) and (orientation: landscape){
+    left: 75%;
+  }
 }
