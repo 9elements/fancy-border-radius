@@ -1,17 +1,27 @@
 .company-link {
-  border: 1px solid $pink;
-  font-size: 1rem;
-  display: block;
-  margin: 0 auto auto;
-  margin-bottom: 1rem;
-  padding: 1em;
+  z-index: 200;
   width: 14em;
-  color: $white;
-  text-decoration: none;
-  background: rgba(255, 255, 255, 0.15);
   position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 0.5em 1em 0.75em;
+  margin: 2em auto;
+  margin-bottom: 1rem;
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid $pink;
+  color: $white;
+  font-size: 1rem;
+  text-align: center;
+  text-decoration: none;
+
+  &:hover {
+    background: rgba(255,255,255,0.3);
+  }  &__label {
+    margin-bottom: 0.5em;
+  }
 
   @media screen and (min-width: 62rem) and (orientation: landscape){
+    margin: 0;
     position: absolute;
     top: 7%;
     right: 1rem;
