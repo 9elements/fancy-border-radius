@@ -1,0 +1,44 @@
+@font-face {
+  font-family: "M PLUS Rounded 1c";
+  font-style: normal;
+  font-weight: 400;
+  src: url("/src/fonts/m-plus-rounded-1c-v15-latin-regular.eot");
+  src: local(""),
+    url("/src/fonts/m-plus-rounded-1c-v15-latin-regular.eot?#iefix")
+      format("embedded-opentype"),
+    url("/src/fonts/m-plus-rounded-1c-v15-latin-regular.woff2") format("woff2"),
+    url("/src/fonts/m-plus-rounded-1c-v15-latin-regular.woff") format("woff"),
+    url("/src/fonts/m-plus-rounded-1c-v15-latin-regular.ttf") format("truetype"),
+    url("/src/fonts/m-plus-rounded-1c-v15-latin-regular.svg#MPLUSRounded1c")
+      format("svg");
+}
+
+@font-face {
+  font-family: "M PLUS Rounded 1c";
+  font-style: normal;
+  font-weight: 800;
+  src: url("/src/fonts/m-plus-rounded-1c-v15-latin-800.eot");
+  src: local(""),
+    url("/src/fonts/m-plus-rounded-1c-v15-latin-800.eot?#iefix")
+      format("embedded-opentype"),
+    url("/src/fonts/m-plus-rounded-1c-v15-latin-800.woff2") format("woff2"),
+    url("/src/fonts/m-plus-rounded-1c-v15-latin-800.woff") format("woff"),
+    url("/src/fonts/m-plus-rounded-1c-v15-latin-800.ttf") format("truetype"),
+    url("/src/fonts/m-plus-rounded-1c-v15-latin-800.svg#MPLUSRounded1c")
+      format("svg");
+}
+
+/* ubuntu-mono-regular - latin */
+@font-face {
+  font-family: "Ubuntu Mono";
+  font-style: normal;
+  font-weight: 400;
+  src: url("/src/fonts/ubuntu-mono-v15-latin-regular.eot");
+  src: local(""),
+    url("/src/fonts/ubuntu-mono-v15-latin-regular.eot?#iefix")
+      format("embedded-opentype"),
+    url("/src/fonts/ubuntu-mono-v15-latin-regular.woff2") format("woff2"),
+    url("/src/fonts/ubuntu-mono-v15-latin-regular.woff") format("woff"),
+    url("/src/fonts/ubuntu-mono-v15-latin-regular.ttf") format("truetype"),
+    url("/src/fonts/ubuntu-mono-v15-latin-regular.svg#UbuntuMono") format("svg");
+}
