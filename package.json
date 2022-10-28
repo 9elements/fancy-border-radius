@@ -33,7 +33,7 @@
   "dependencies": {
     "@babel/core": "^7.0.0",
     "clipboard-polyfill": "^2.5.4",
-    "css-loader": "^1.0.0",
+    "css-loader": "^6.7.1",
     "style-loader": "^0.23.0"
   }
 }
