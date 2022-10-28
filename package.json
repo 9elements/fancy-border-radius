@@ -8,6 +8,7 @@
     "dev": "vite serve",
     "preview": "vite preview",
     "build": "vite build",
+    "deploy": "sh ./deploy.sh",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
